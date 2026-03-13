@@ -1,0 +1,42 @@
+/* Dark Ant Design Table */
+.dark-table .ant-table {
+  background-color: #1e293b; /* slate-800 */
+  color: #e5e7eb; /* slate-200 */
+}
+
+.dark-table .ant-table-thead > tr > th {
+  background-color: #0f172a; /* slate-900 */
+  color: #e5e7eb;
+  border-bottom: 1px solid #334155; /* slate-700 */
+}
+
+.dark-table .ant-table-tbody > tr > td {
+  background-color: #fff;
+  border-bottom: 1px solid #334155;
+  color: #1e293b !important;
+}
+
+.dark-table .ant-table-tbody > tr:hover > td {
+  background-color: #1e293b !important; /* slate-700 */
+  color: #fff !important;
+}
+
+.dark-table .ant-table-placeholder {
+  background-color: #1e293b;
+  color: #94a3b8; /* slate-400 */
+}
+
+/* Pagination (optional if you want it dark too) */
+.ant-pagination-item {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+.ant-pagination-item a {
+  color: #e5e7eb;
+}
+
+.ant-pagination-item-active {
+  background-color: #2563eb; /* blue-600 */
+  border-color: #2563eb;
+}

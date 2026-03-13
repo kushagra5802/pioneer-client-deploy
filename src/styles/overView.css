@@ -1,0 +1,458 @@
+@font-face {
+  font-family: "Inter-Medium";
+  src: url(../assets/fonts/Inter-Medium.ttf);
+
+}
+
+@font-face {
+  font-family: "Inter-Regular";
+  src: url(../assets/fonts/Inter-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Inter-Regular";
+  box-sizing: border-box;
+
+}
+
+/* .overview-page-container{
+ margin: 15px;
+} */
+
+.overview-container {
+  /* width: 100%;
+  margin: auto; */
+  background: var(--input-bg);
+}
+
+.overview-container .ant-select-selector {
+  border: 1px solid var(--overview-dropdown) !important;
+  height: 32px !important;
+  background: transparent !important;
+}
+
+.overview-container .ant-select-selection-item,
+.overview-container .ant-select-selection-placeholder {
+  line-height: 30px !important;
+}
+
+.overview-container .ant-select-arrow {
+  color: var(--pioneer-primary)
+}
+
+.overview-container .page-heading button {
+  display: none;
+}
+
+.overview-top,
+.overview-user-section {
+  border-radius: 20px;
+  background: var(--stats-wrapper);
+}
+
+.overview-stats {
+  height: 130px;
+  padding-left: 30px;
+  border-radius: 32px;
+  background: var(--input-bg);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+}
+
+.visitors .overview-stats {
+  padding-inline: 24px !important;
+}
+
+.visitors .overview-stats .stats-icon {
+  width: auto;
+}
+
+.visitors .stats-content .float-child {
+  padding-right: 0 !important;
+}
+
+.overview-stats .stats-icon {
+  width: 71px;
+  height: 71px;
+  background: #D6F2FD;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 4.82539701461792px 8.44444465637207px 0px rgba(86, 150, 184, 0.2);
+}
+
+.stats-icon img {
+  height: auto;
+  width: 38px;
+  margin: 20px;
+
+}
+
+
+
+.stats-wrapper .stats-title {
+  color: var(--stat-text);
+  font-family: "Inter-Regular";
+  font-size: 16.889px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.467px;
+  margin-top: 5px;
+  margin-left: 24px;
+}
+
+.stats-content .float-child {
+  padding-right: 15px;
+  float: left;
+  margin-top: 10px;
+}
+
+.stats-content .float-container {
+  padding-left: 20px;
+  float: left;
+  margin-top: 10px;
+}
+
+.stats-content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.stats-percent {
+  color: #27AE60;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.345px;
+}
+
+.change-icon svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.float-child .stats-stat {
+  font-family: "Inter-Bold";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: -0.01em;
+  color: var(--modal-h3);
+  margin-left: 24px;
+}
+
+.overview-container .overview-top .stats-content .float-container {
+  padding: 1px;
+  margin-top: 15px;
+  width: 72px;
+  height: 24px;
+  background: rgba(39, 174, 96, 0.12);
+  border-radius: 20px;
+}
+
+.float-container .float-child-arrow {
+  padding-right: 5px;
+  float: left;
+  color: green;
+
+}
+
+.float-child-arrow .change-icon {
+  margin-left: 18.37%;
+  margin-right: 18.36%;
+  margin-top: 18.41%;
+  margin-bottom: 16.67%;
+  color: #27AE60;
+}
+
+.float-child-arrow .float-percent {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #27AE60;
+}
+
+.overview-user-section {
+  margin: 30px 0px;
+}
+
+.revenue-map {
+  /* width: 675px; */
+  margin: 24px 0px;
+}
+
+.map-traffic {
+  height: 356px;
+  margin: 24px 0px 24px 17px;
+}
+
+.gms-user-bill {
+  margin: 24px 0px 16px 0px;
+  padding: 20px 0px;
+}
+
+.overview-section {
+  display: flex;
+  flex-direction: column !important;
+  background: var(--stats-wrapper);
+  /* box-shadow: 1px 1px 3px rgba(0, 72, 119, 0.15); */
+  border-radius: 35px;
+}
+
+.overview-section .overview-heading {
+  padding: 25px 30px 0px;
+  /* background: #FFFFFF; */
+  border-radius: 12.063px 12.063px 0px 0px;
+}
+
+.overview-heading .overview-text {
+  font-family: "Inter-Regular";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--dark-color);
+}
+
+.revenue-map .revenue-map-chart rect {
+  width: 8px;
+  background: #004877;
+  border-radius: 20px 20px 0px 0px;
+}
+
+/* .revenue-map .revenue-map-chart text{
+  display: none;
+} */
+.gms-data {
+  padding: 0 16px;
+}
+
+.gms-data p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1C2D37;
+  margin: 8px 0px;
+  font-family: "Inter-Regular";
+  font-style: 'normal';
+
+}
+
+.gms-data h3 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: -0.01em;
+  color: #001D30;
+  /* margin:0 16px; */
+  font-family: "Inter-Bold";
+
+}
+
+.gms-data .record-view a {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #004877;
+  margin: 34px 16px 30px auto;
+}
+
+.gms-data .gms-record-table table,
+.billing-record-table table {
+  /* width: 400px; */
+  height: auto;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px !important;
+  background: #FFFFFF;
+}
+
+
+.gms-record-table td,
+.billing-record-table td {
+  padding: 3px !important;
+
+}
+
+.gms-record-table th,
+.billing-record-table th {
+  padding: 5px !important;
+  background-color: #fff !important;
+
+
+}
+
+
+
+.gms-record-table .ant-table-thead .ant-table-cell,
+.billing-record-table .ant-table-thead .ant-table-cell {
+  background-color: #fff !important;
+}
+
+
+
+
+
+.gms-record-table tr:nth-child(odd),
+.billing-record-table tr:nth-child(odd) {
+  background: #F0F6F9;
+}
+
+
+
+.gms-record-table tr:nth-child(even),
+.billing-record-table tr:nth-child(even) {
+  background: #FFF;
+}
+
+
+
+
+.gms-record-table td:nth-child(2),
+.gms-record-table thead tr th:nth-child(2) {
+  text-align: flex-end;
+}
+
+.gms-record-table td:nth-child(1),
+.gms-record-table thead tr th:nth-child(1) {
+  padding-left: 10px !important;
+}
+
+.gms-record-table thead tr th:nth-child(2) {
+  padding-right: 15px !important;
+
+}
+
+.billing-record-table thead tr th,
+.billing-record-table td {
+  text-align: start !important;
+  padding-left: 18px !important;
+
+}
+
+.ant-table-wrapper .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  display: none;
+}
+
+
+.overview-container .userName {
+  color: var(--hello-text);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 16px;
+}
+
+.overview-container .userName span {
+  color: var(--primary-color);
+
+}
+
+
+.gms-record-table .ant-tag {
+  padding: 0px;
+}
+
+.user-income-graph .user-graph-stats {
+  border-radius: 12.063px;
+  background: var(--wrapper-bg);
+  box-shadow: var(--box-shadow);
+}
+
+.user-graph-stats .overview-stats {
+  height: 170px;
+  padding-left: 40px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  /* justify-content: center; */
+}
+
+.user-graph-stats .overview-stats:first-child {
+  border-bottom: 1px solid #E6E6E6;
+  ;
+}
+
+.user-graph-stats .overview-stats:first-child img {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.user-graph-stats .stats-content {
+  align-items: center;
+}
+
+/* .user-graph-stats .stats-wrapper .stats-title {
+  margin-left: 0;
+} */
+
+/* .active-user-map {
+  overflow-x: scroll;
+} */
+
+.active-user-map::-webkit-scrollbar {
+  height: 8px;
+}
+
+.active-user-map::-webkit-scrollbar-track {
+  border-radius: 100px;
+  background: #E8E8E8;
+}
+
+.active-user-map::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background: #7A7A7A;
+}
+
+.active-user-map::-webkit-scrollbar-thumb:hover {
+  background: #7A7A7A;
+}
+
+.active-ticket img {
+  width: 70px;
+}
+
+.overview-user-graph .overview-user-section {
+  background: var(--stats-wrapper) !important;
+}
+
+.overview-stats {
+  transition: transform 1s ease, background-color 0.1s ease, border-color 0.5s ease;
+}
+
+.overview-page .overview-stats:hover {
+  transform: translateY(-10px);
+  background-color: var(--overview-stats-hover);
+
+}
+
+.overview-graph-tooltip {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: var(--table-row-hover);
+  box-shadow: var(--box-shadow);
+}
+.overview-graph-tooltip p{
+  color: var(--body-text);
+  font-weight: 500;
+  font-size: 16px;
+}
+.apexcharts-toolbar{
+  gap:8px;
+  
+}

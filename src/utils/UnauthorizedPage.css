@@ -1,0 +1,27 @@
+/* UnauthorizedPage.css */
+.unauthorized-container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  padding: 20px;
+}
+
+.unauthorized-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.unauthorized-title {
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+
+.unauthorized-content {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+/* Add more styles as needed */

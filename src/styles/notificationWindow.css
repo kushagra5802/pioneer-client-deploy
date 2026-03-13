@@ -1,0 +1,115 @@
+.notification-window {
+  position: absolute;
+  top: 80px;
+  right: 1.5%;
+  width: 25%;
+  z-index: 10;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.notification-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  background-color: var(--wrapper-bg);
+  border-radius: 8px 8px 0px 0px;
+}
+
+.notification-title p {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0em;
+  color: var(--body-text);
+}
+
+.cursor-pointer {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+  letter-spacing: 0em;
+  color: #004877;
+}
+
+.notification-title a {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #868690;
+  margin: auto;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.notification-title a:hover {
+  color: #43608c;
+}
+
+.notification-title p:nth-child(2):hover {
+  color: #43608c;
+}
+
+.notifications-box {
+  height: 400px;
+  overflow-y: auto;
+  background-color: var(--background-color);
+}
+
+.notifications-box::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+  background: #f2f2f2;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+/* .notifications-box::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+} */
+
+.notifications-box::-webkit-scrollbar-thumb {
+  background: #b2b2b2;
+  border-radius: 10px;
+}
+
+/* .notifications-box::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+}
+
+.notifications-box::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+} */
+
+.all-notification-text {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+  background: var(--wrapper-bg);
+  /* border-top: none; */
+  padding: 10px;
+  /* color: blue; */
+  cursor: pointer;
+  border-radius: 0 0 8px 8px;
+}
+
+.all-notification-text button {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color:var(--primary-color)
+}
+.allNotifications .notification-item:first-child {
+  border-radius: 8px 8px 0 0;
+}

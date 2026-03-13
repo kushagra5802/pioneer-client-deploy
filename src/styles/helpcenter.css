@@ -1,0 +1,139 @@
+.get-started {
+    border-radius: 8px;
+    border: 1px solid #2B9FFF;
+    padding: 12px;
+}
+
+.get-started h3 {
+    color: var(--gray-500, #667085);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.get-started span {
+    color: #004877;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.helpcenter-page {
+    padding: 16px;
+}
+
+.helpcenter-wrapper {
+    border-radius: 10px;
+    background: var(--wrapper-bg);
+    margin-top: 16px;
+    padding: 20px;
+}
+
+.helpcenter-wrapper h4 {
+    color: var(--modal-h3);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-left: 16px;
+}
+
+.helpcenter-wrapper .ant-collapse {
+    background: none;
+}
+
+.helpcenter-wrapper .ant-collapse-item {
+    background: var(--input-bg) !important;
+}
+
+.helpcenter-wrapper .ant-collapse-header span {
+    font-weight: 400;
+    font-style: 16px;
+    color: var(--notification-title);
+}
+
+.helpcenter-wrapper .ant-collapse-item-active span {
+    font-weight: 600;
+}
+
+.helpcenter-wrapper .ant-collapse-content-box p {
+    font-size: 16px;
+    font-weight: 400px;
+    color: var(--body-text);
+}
+
+.helpcenter-wrapper .ant-collapse-arrow svg {
+    color: var(--primary-color);
+}
+
+.helpcenter-common {
+    padding: 30px 40px;
+    background: var(--wrapper-bg);
+    margin: 16px 24px;
+    border-radius: 10px;
+}
+
+.icon-clr {
+    color: var(--primary-color) !important;
+}
+
+.help-topic {
+    width: 100%;
+    height: 160px;
+    background: var(--input-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-line, #CCDAE4);
+    box-shadow: 1px 1px 3px 0px rgba(0, 72, 119, 0.15);
+}
+
+.useful-videos {
+    width: 100%;
+    height: 200px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.helpcenter-common h3,
+.help-topic .flex p {
+    color: var(--modal-h3);
+}
+
+.helptopic-innerbox {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: var(--highlight, #F0F6F9);
+    border: none;
+    margin: 16px 16px 24px 16px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.helptopic-innerbox img {
+    height: 20px;
+    width: 20px;
+}
+
+.help-subpara {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--primary-stat-text);
+}
+
+.heading-icon {
+    width: 22px;
+    height: 18px;
+}
+
+.help-center-videos h3 {
+    color: var(--dark-color);
+}
+
+.help-center-videos p:first-child {
+    color: var(--modal-h3);
+}

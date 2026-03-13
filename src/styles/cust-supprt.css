@@ -1,0 +1,221 @@
+.cust-supprt-section {
+  margin: 16px 24px;
+}
+
+.cust-supprt-section .cust-supprt-tabs {
+  border-radius: 12.063px;
+  background: var(--wrapper-bg);
+  box-shadow: var(--box-shadow);
+  padding: 28px;
+  cursor: pointer;
+}
+
+.customer-support-stats {
+  margin: 20px 0px;
+}
+
+.customer-support-stats .overview-top {
+  padding-left: 4%;
+  padding-right: 4%;
+  background: none;
+}
+
+.cust-supprt-section .cust-img-wrapper {
+  width: 71px;
+  height: 71px;
+  flex-shrink: 0;
+  border-radius: 57.404px;
+  /* background: #3BBEE8; */
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.cust-supprt-section .cust-img-wrapper img {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.cust-supprt-tabs p {
+  color: var(--stat-text);
+  font-family: "Inter";
+  font-size: 16.889px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.467px;
+}
+
+.cust-supprt-tabs h2 {
+  color: var(--modal-h3);
+  font-family: "Inter";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.467px;
+}
+
+.tabble {
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.filtter {
+  height: 60px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+/* .cust-form {
+  border-bottom: 1px solid #ccdae4 !important;
+  background-color: #f2f8fd;
+  padding: 20px;
+} */
+
+.cust-form input {
+  text-transform: capitalize;
+}
+
+.ant-modal .ant-modal-header {
+  margin-bottom: 0px !important;
+}
+
+/* .cust-form .ant-input-group .ant-input {
+  height: 3rem;
+}
+
+.cust-form .ant-select-selection-item {
+  color: black;
+  margin-top: 0;
+  opacity: 1;
+} */
+
+.cust-form1 .ant-select-selector {
+  width: 313px !important;
+  height: 48px !important;
+}
+
+/* .com{
+    width: 330px;
+    height: 48px;
+} */
+
+/* .custom-support-modal .ant-modal-title {
+  padding: 20px 16px;
+  border-bottom: 1px solid #ccdae4;
+  font-size: 24px;
+  font-weight: 700;
+} */
+
+.form-background {
+  background-color: #f4f8fb;
+}
+
+/* .cust-form span {
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 16px;
+  line-height: 19px;
+  color: #8D969B;
+} */
+
+.cust-form .Assigned span {
+  opacity: 1;
+}
+
+.com {
+  width: 330px;
+}
+
+.cust-supprt-section .ant-table-tbody>tr>td:nth-child(2) {
+  color: var(--body-text, #1c2d37);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.add-user-modal-radio .ant-radio-wrapper .ant-radio-checked .ant-radio-inner::after {
+  background-color: var(--radio-btn) !important;
+  opacity: 1;
+}
+
+/* .ticket-modal {
+  background-color: #F2F8FD;
+  padding: 20px;
+  border-radius: 0px 0px 10px 10px;
+} */
+.ticket-modal .modal-wrapper-body {
+  border-bottom: none;
+  border-radius: 0 0 8px 8px;
+  padding: 20px;
+}
+
+.ticket-modal .client-details .firstname-field p span:first-child {
+  width: 24% !important;
+}
+
+.ticket-modal .firstname-field p {
+  padding-bottom: 30px !important;
+}
+
+.ticket-modal .firstname-field p span:first-child {
+  color: var(--body-text);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.6499999761581421;
+}
+
+.ticket-modal .firstname-field p span:nth-child(2) {
+  color: var(--body-text);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 50%;
+}
+
+.add-modal-row input:read-only,
+.custom-support-modal .ant-input-group .ant-input-group-addon {
+  color: #8D969B;
+}
+
+.cust-supprt-section .ant-table-tbody>tr {
+  text-transform: capitalize;
+}
+
+.custom-support-modal button {
+  margin: 0;
+}
+
+.custom-support-modal .gms-modal-button {
+  border-radius: 8px;
+  padding: 0 16px;
+}
+
+.cust-form .add-modal-row .ant-select-selector {
+  width: 314px !important;
+}
+
+.cust-form .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  margin-left: 1px !important;
+}
+
+/* .cust-form  p{
+  padding-left: 4px;
+} */
+.cust-form .add-user-modal-radio p {
+  padding-left: 20px;
+}
+
+.selected-ticket {
+  border: 1.5px solid var(--overview-dropdown);
+  border-radius: 12.063px;
+}

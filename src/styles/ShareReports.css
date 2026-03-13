@@ -1,0 +1,207 @@
+.share-report-modal.ant-modal {
+    padding-bottom: 0;
+}
+
+/* .share-report-modal.ant-modal .ant-modal-content {
+    padding: 18px 0 0;
+} */
+ /* .share-report-wrapper {
+    background: var(--modal-background);
+    padding: 36px 16px 56px 16px;
+    overflow:auto;
+    height: auto;
+} */
+.search-share .search-filter {
+    padding: 0;
+}
+
+.report-requested .search-filter {
+    padding: 16px !important;
+}
+
+/* .share-report-modal {
+    box-shadow: 1px 5px 10px rgba(1, 29, 47, 0.25);
+    border-radius: 8px;
+} */
+
+/* .share-report-modal.ant-modal .ant-modal-close {
+    top: 24px;
+    color: #00416B;
+} */
+
+/* .share-report-modal .share-report-modal-header {
+    border-bottom: 1px solid #CCDAE4;
+    border-radius: 8px 8px 0px 0px;
+    padding-bottom: 15px;
+}
+
+.share-report-modal-header h3 {
+    height: 29px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.01em;
+    color: #001D30;
+    margin: 0 16px;
+} */
+
+/* .share-report-modal-body {
+    border-radius: 8px;
+    padding: 4px 16px 24px;
+    background: var(--white-color);
+} */
+
+/* .share-report-modal-body h4 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.6;
+    padding: 30px 4px 10px;
+} */
+
+
+.report-table-wrapper .search-filter .filter-option {
+    display: none;
+}
+
+
+
+.search-share {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background: var(--input-bg);
+}
+
+.ant-table-wrapper .ant-table-selection {
+    display: none;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #00416B;
+    border-color: #00416B;
+}
+
+.report-table-wrapper .ant-checkbox-checked:after {
+    border: 2px solid #00416B !important;
+}
+
+.report-table-wrapper .ant-checkbox-checked:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
+    background-color: #00416B !important;
+    border-color: transparent;
+}
+
+.report-table-wrapper .ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
+    border-color: #00416B;
+}
+
+.share-modal-btn {
+    border-radius: 6px;
+    border: 1px solid #2B9FFF;
+}
+
+.share-modal-btn button {
+    height: 40px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.ant-btn-default {
+    border-color: transparent;
+}
+
+.share-modal-btn span {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.43px;
+    color: #2B9FFF;
+}
+
+.share-report-modal-body .ant-row {
+    display: block;
+}
+
+.share-desc-wrapper {
+    display: inline-block !important;
+    border-radius: 10px;
+    border: 1px solid #CCDAE4;
+    width: -webkit-fill-available;
+    height: auto;
+    padding: 15px 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.share-desc {
+    /* display: flex;
+    align-items: flex-start; */
+    display: inline-block !important;
+    border-radius: 10px;
+    border: 1px solid #CCDAE4;
+    width: -webkit-fill-available;
+    height: auto;
+    padding: 15px 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.share-desc img {
+    margin-top: 4px;
+}
+
+.share-desc a {
+    padding: 0 10px;
+    display: inline-block;
+    word-break: break-word;
+    color: var(--body-text);
+}
+.share-desc span{
+    margin-left: auto;
+}
+
+.share-report-subscriber .ant-select-selector {
+    /* width: auto;
+    height: 48px !important;
+    border: 1px solid #CCDAE4 !important;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #1C2D37 !important; */
+    /* display: inline-block!important; */
+}
+/* .client-name {
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: #FFF;
+    height: 48px;
+    align-items: center;
+    display: flex;
+    padding-left: 12px;
+    margin-top: 12px;
+    width: -webkit-fill-available;
+    text-transform: capitalize;
+} */
+
+/* .manage-subscribers {
+    border: none;
+    box-shadow: none;
+    color: #2B9FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-left: 30px;
+} */
+
+/* .add-clients .manage-subscribers {
+    color: #00416B;
+    padding-top: 26px;
+    padding-left: 29px;
+} */

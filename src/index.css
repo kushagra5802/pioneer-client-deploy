@@ -1,0 +1,7 @@
+@import './styles/App.css';
+@import './styles/common.css';
+@import './styles//_color_variables.css';
+@import './styles/overView.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,50 @@
+.map-main-section{
+    background: #FFFFFF;
+    border: 1px solid #CCDAE4;
+    box-shadow: 1px 1px 3px rgba(0, 72, 119, 0.15);
+    border-radius: 8px;
+    height: 80vh;
+    margin: 5px;
+}
+
+.map-heading{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-sec{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-sec .upload-data-btn{
+    /* font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    height: 48px;
+    padding: 10px 15px !important;
+    color: #004877;
+    background-color: #FFFFFF;
+    width: auto; */
+    width: 160px;
+    height: 48px;
+    color: #004877 !important;
+    background: #ffffff !important;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 15px 16px;
+    border: 1px solid #004877 !important;
+
+    display: flex;
+}
+
+.button-sec .add-map-data{
+    width: auto;
+
+color: #FFFFFF;
+font-weight: 600;
+font-size: 16px;
+line-height: 19px;
+}
+
