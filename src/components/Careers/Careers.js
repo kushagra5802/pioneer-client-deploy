@@ -20,8 +20,25 @@ export default function CareersPage() {
 
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedIndustry, setSelectedIndustry] = useState(null)
-  const [openModal, setOpenModal] = useState(false)
   const [selectedCareer, setSelectedCareer] = useState(null)
+
+  const {
+  data: industriesResponse,
+  isLoading: industriesLoading,
+  isError: industriesError,
+} = useQuery(
+  ["industries"],
+  async () => {
+    const res = await axios.get("/api/careers/industries")
+    return res.data
+  },
+  {
+    refetchOnWindowFocus: false,
+    retry: 1,
+  }
+)
+
+const industries = industriesResponse?.data || []
 
     const {
     data: careersResponse,
@@ -110,24 +127,40 @@ export default function CareersPage() {
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {industries.map((industry) => (
-                  <div
-                    key={industry.id}
-                    onClick={() => setSelectedIndustry(industry.name)}
-                    className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md cursor-pointer group"
-                  >
-                    <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
-                      <industry.icon className="w-6 h-6 text-slate-600" />
-                    </div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-4">
-                      {industry.name}
-                    </h3>
-                    <button className="flex items-center gap-2 text-sm font-semibold text-indigo-500 uppercase tracking-wider group-hover:gap-3">
-                      Explore Pathways
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
+               {industriesLoading ? (
+                  <div className="col-span-3 text-center py-10">
+                    Loading industries...
                   </div>
-                ))}
+                ) : industriesError ? (
+                  <div className="col-span-3 text-center py-10 text-red-500">
+                    Failed to load industries
+                  </div>
+                ) : industries.length > 0 ? (
+                  industries.map((industry, index) => (
+                    <div
+                      key={index}
+                      onClick={() => setSelectedIndustry(industry)}
+                      className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md cursor-pointer group"
+                    >
+                      <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
+                        <Building2 className="w-6 h-6 text-slate-600" />
+                      </div>
+
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">
+                        {industry}
+                      </h3>
+
+                      <button className="flex items-center gap-2 text-sm font-semibold text-indigo-500 uppercase tracking-wider group-hover:gap-3">
+                        Explore Pathways
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-3 text-center py-10">
+                    No industries found
+                  </div>
+                )}
               </div>
             </>
           ) : (
