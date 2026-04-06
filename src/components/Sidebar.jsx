@@ -85,7 +85,9 @@ const Sidebar = ({ role, user }) => {
                     }`
                   }
                 >
-                  <img src={item.icon?.props?.src} alt="" />
+                  <span className="flex h-5 w-5 items-center justify-center">
+                    {item.icon}
+                  </span>
                   {isOpen && (
                     <span className="font-medium text-sm">
                       {item.name}
@@ -111,12 +113,14 @@ const Sidebar = ({ role, user }) => {
               className={({ isActive }) =>
                 `w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                   isActive
-                    ? "bg-indigo-600 text-white"
-                    : "text-slate-300 hover:bg-slate-700"
+                    ? "bg-indigo-100 text-indigo-700"
+                    : "text-slate-700 hover:bg-slate-100"
                 }`
               }
             >
-              {item.icon}
+              <span className="flex h-5 w-5 items-center justify-center">
+                {item.icon}
+              </span>
               {isOpen && (
                 <span className="font-medium text-sm">
                   {item.name}
@@ -129,7 +133,7 @@ const Sidebar = ({ role, user }) => {
         <Tooltip placement="right" title={!isOpen ? "Logout" : ""}>
           <button
             onClick={() => setLogoutModal(true)}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors"
           >
             <LogOutIcon className="w-5 h-5 text-black" />
             {isOpen && <span className="font-medium text-sm">Logout</span>}

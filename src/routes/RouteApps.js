@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 // eslint-disable-next-line no-unused-vars
 import {
-  BrowserRouter as Router,
   Route,
   Routes,
-  Navigate
+  Navigate,
+  useLocation
 } from "react-router-dom";
-import Overview from "../pages/overview";
 import Sidebar from "../components/Sidebar";
 import { AppContext } from "../context/AppContextProvider";
 import Settings from "../pages/settings";
@@ -24,7 +23,6 @@ import University from "../pages/university";
 import Skills from "../pages/skills";
 import CVBuilder from "../pages/cvBuilder";
 import Dashboard from "../pages/dashboard";
-import WeekContentView from "../components/Skills/WeekContentView";
 import AssessmentResultView from "../components/Skills/AssessmentResultView";
 import Psychometric from "../pages/psychometric";
 import AcademicResult from "../components/Psychometric/AcademicSelfEfficacy/AcademicResult";
@@ -32,10 +30,17 @@ import MBTIResult from "../components/Psychometric/MBTI/MBTIResult";
 import CareerResult from "../components/Psychometric/CareerMaturity/CareerResult";
 import RiasecResult from "../components/Psychometric/Riasec/RiasecResult";
 import StudentBlog from "../pages/studentBlog";
+import Welcome from "../pages/welcome";
+import Resources from "../pages/resources";
+import ExploreCity from "../pages/exploreCity";
+import { readWelcomeProfile } from "../data/studentExperience";
 const RouteApps = () => {
   const { isLoggedIn } = useContext(AppContext);
+  const location = useLocation();
   const userString = localStorage.getItem("users");
   const user = JSON.parse(userString);
+  const welcomeProfile = readWelcomeProfile();
+  const hasCompletedWelcome = Boolean(welcomeProfile?.grade);
   // const role = user?.role;
   let role;
   if (user?.type==='client'){
@@ -44,22 +49,35 @@ const RouteApps = () => {
   else{
     role="STUDENT"
   }
+
+  if (isLoggedIn && !hasCompletedWelcome && location.pathname !== "/welcome") {
+    return <Navigate to="/welcome" replace />;
+  }
+
   return (
     <>
       {isLoggedIn ? (
         <>
           {/* <Navbar /> */}
-          <div className='grid-container'>
-            <div className='grid-child'>
-              <Sidebar role={role} user={user} />
-            </div>
+          <div className={location.pathname === "/welcome" ? "" : "grid-container"}>
+            {location.pathname !== "/welcome" && (
+              <div className='grid-child'>
+                <Sidebar role={role} user={user} />
+              </div>
+            )}
 
             <div className='grid-child'>
               <Routes>
                 <Route
                   path='*'
-                  element={<Navigate to='/dashboard' replace />}
+                  element={
+                    <Navigate
+                      to={hasCompletedWelcome ? "/dashboard" : "/welcome"}
+                      replace
+                    />
+                  }
                 />
+                <Route path="/welcome" element={<Welcome user={user} />} />
                 <Route element={<ClientRoute user={user} />}>
                   <Route path="/assets" element={<Assets />} />
                   <Route path="/assets/:studentId" element={<StudentDetails />} />
@@ -71,6 +89,8 @@ const RouteApps = () => {
                 <Route path="/university" element={<University />} />
                 <Route path="/counselling" element={<Counselling />} />
                 <Route path="/skills" element={<Skills />} />
+                <Route path="/resources" element={<Resources />} />
+                <Route path="/explore-city" element={<ExploreCity />} />
                 <Route path="/assessment-result" element={<AssessmentResultView />} />
                 <Route path="/psychometric" element={<Psychometric />} />
                 <Route path="/psychometric-academic-result" element={<AcademicResult />} />

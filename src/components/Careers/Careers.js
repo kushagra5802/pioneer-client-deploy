@@ -1,56 +1,34 @@
-import { useState } from "react"
-import { useQuery } from "react-query"
+import { useMemo, useState } from "react"
+import { useQuery, useQueryClient } from "react-query"
+import { toast } from "react-toastify"
 import PageHeader from "../PageHeader"
 import useAxiosInstance from "../../lib/useAxiosInstance"
-import { Plus, Search, ArrowLeft, ChevronRight, Building2 } from "lucide-react"
+import { Search, ArrowLeft, ChevronRight, Building2, Heart } from "lucide-react"
 import CareerDetailModal from "./CareerDetailModal"
-
-const industries = [
-  { id: "cs", name: "Computer Science & IT", icon: Building2 },
-  { id: "law", name: "Law, Policy & Governance", icon: Building2 },
-  { id: "medicine", name: "Medicine & Clinical Health", icon: Building2 },
-  { id: "enigneering", name: "Engineering & Manufacturing", icon: Building2 },
-  { id: "finance", name: "Finance & Banking", icon: Building2 },
-  { id: "arts", name: "Arts & Design", icon: Building2 },
-  { id: "education", name: "Education & Research", icon: Building2 },
-]
 
 export default function CareersPage() {
   const axios = useAxiosInstance()
+  const queryClient = useQueryClient()
+  const PAGE_SIZE = 50
 
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedIndustry, setSelectedIndustry] = useState(null)
   const [selectedCareer, setSelectedCareer] = useState(null)
-
-  const {
-  data: industriesResponse,
-  isLoading: industriesLoading,
-  isError: industriesError,
-} = useQuery(
-  ["industries"],
-  async () => {
-    const res = await axios.get("/api/careers/industries")
-    return res.data
-  },
-  {
-    refetchOnWindowFocus: false,
-    retry: 1,
-  }
-)
-
-const industries = industriesResponse?.data || []
+  const [currentPage, setCurrentPage] = useState(1)
 
     const {
     data: careersResponse,
     isLoading,
     isError,
     } = useQuery(
-    ["careers", searchQuery, selectedIndustry],
+    ["careers", searchQuery, selectedIndustry, currentPage],
     async () => {
         const res = await axios.get("/api/careers", {
         params: {
-            keyword: searchQuery || undefined,
+            keyword: searchQuery.trim() || undefined,
             industry: selectedIndustry || undefined,
+            limit: PAGE_SIZE,
+            page: currentPage,
         },
         })
         return res.data
@@ -61,10 +39,67 @@ const industries = industriesResponse?.data || []
     }
     )
 
-  const careers = careersResponse?.data || []
+  const careers = useMemo(
+    () => careersResponse?.data || [],
+    [careersResponse]
+  )
+  const totalCareerPages = careersResponse?.totalPages || 1
+  const totalCareers = careersResponse?.total || 0
+
+  const { data: shortlistResponse } = useQuery(
+    "student-shortlist-careers",
+    async () => {
+      const res = await axios.get("/api/student-shortlist")
+      return res.data
+    },
+    {
+      refetchOnWindowFocus: false,
+      retry: 1,
+    }
+  )
+
+  const shortlistedCareers = useMemo(
+    () => shortlistResponse?.data?.shortlistedCareers?.filter(Boolean) || [],
+    [shortlistResponse]
+  )
+
+  const shortlistedCareerIds = useMemo(
+    () => new Set(shortlistedCareers.map((career) => career._id)),
+    [shortlistedCareers]
+  )
+
+  const industryBuckets = useMemo(() => {
+    return careers.reduce((acc, career) => {
+      if (!career?.industry) return acc
+      if (!acc[career.industry]) acc[career.industry] = []
+      acc[career.industry].push(career)
+      return acc
+    }, {})
+  }, [careers])
+
+  const visibleIndustries = useMemo(
+    () =>
+      Object.entries(industryBuckets).map(([name, items]) => ({
+        name,
+        count: items.length,
+      })),
+    [industryBuckets]
+  )
 
   const openCareerDetail = (career) => {
     setSelectedCareer(career)
+  }
+
+  const toggleCareerShortlist = async (career) => {
+    try {
+      const res = await axios.post("/api/student-shortlist/careers/toggle", {
+        careerId: career._id,
+      })
+      toast.success(res?.data?.message || "Shortlist updated")
+      await queryClient.invalidateQueries("student-shortlist-careers")
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Failed to update shortlist")
+    }
   }
 
   return (
@@ -96,12 +131,56 @@ const industries = industriesResponse?.data || []
                 type="text"
                 placeholder="Search careers, skills, or industries..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value)
+                  setSelectedIndustry(null)
+                  setCurrentPage(1)
+                }}
                 className="w-full pl-12 pr-4 py-4 bg-white rounded-xl border border-slate-200 
                   placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
           </div>
+
+          {shortlistedCareers.length > 0 && (
+            <section className="mb-10">
+              <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-6">
+                My Shortlisted Careers
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {shortlistedCareers.map((career) => (
+                  <div
+                    key={career._id}
+                    className="bg-slate-900 rounded-xl p-6 shadow-sm text-white"
+                  >
+                    <span className="inline-flex px-3 py-1 bg-white/10 text-indigo-200 text-xs font-semibold uppercase rounded-full mb-4">
+                      {career.industry}
+                    </span>
+                    <h3 className="text-xl font-bold mb-2">{career.title}</h3>
+                    <p className="text-slate-300 text-sm mb-5 line-clamp-2">
+                      {career.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <button
+                        onClick={() => openCareerDetail(career)}
+                        className="flex items-center gap-2 text-sm font-medium text-white"
+                      >
+                        DETAILS
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={() => toggleCareerShortlist(career)}
+                        className="flex items-center gap-2 text-sm font-semibold text-rose-300"
+                      >
+                        <Heart className="w-4 h-4" fill="currentColor" />
+                        REMOVE
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Back Button */}
           {selectedIndustry && (
@@ -127,19 +206,22 @@ const industries = industriesResponse?.data || []
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-               {industriesLoading ? (
+               {isLoading ? (
                   <div className="col-span-3 text-center py-10">
                     Loading industries...
                   </div>
-                ) : industriesError ? (
+                ) : isError ? (
                   <div className="col-span-3 text-center py-10 text-red-500">
                     Failed to load industries
                   </div>
-                ) : industries.length > 0 ? (
-                  industries.map((industry, index) => (
+                ) : visibleIndustries.length > 0 ? (
+                  visibleIndustries.map((industry) => (
                     <div
-                      key={index}
-                      onClick={() => setSelectedIndustry(industry)}
+                      key={industry.name}
+                      onClick={() => {
+                        setSelectedIndustry(industry.name)
+                        setCurrentPage(1)
+                      }}
                       className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md cursor-pointer group"
                     >
                       <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
@@ -147,18 +229,18 @@ const industries = industriesResponse?.data || []
                       </div>
 
                       <h3 className="text-lg font-bold text-slate-900 mb-4">
-                        {industry}
+                        {industry.name}
                       </h3>
 
                       <button className="flex items-center gap-2 text-sm font-semibold text-indigo-500 uppercase tracking-wider group-hover:gap-3">
-                        Explore Pathways
+                        Explore {industry.count} Pathways
                         <ChevronRight className="w-4 h-4" />
                       </button>
                     </div>
                   ))
                 ) : (
                   <div className="col-span-3 text-center py-10">
-                    No industries found
+                    No industries found for this search
                   </div>
                 )}
               </div>
@@ -178,9 +260,31 @@ const industries = industriesResponse?.data || []
                     key={career._id}
                     className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md"
                   >
-                    <span className="inline-flex px-3 py-1 bg-indigo-100 text-indigo-600 text-xs font-semibold uppercase rounded-full mb-4">
-                      {career.industry}
-                    </span>
+                    <div className="flex items-start justify-between gap-3 mb-4">
+                      <span className="inline-flex px-3 py-1 bg-indigo-100 text-indigo-600 text-xs font-semibold uppercase rounded-full">
+                        {career.industry}
+                      </span>
+                      <button
+                        onClick={() => toggleCareerShortlist(career)}
+                        className={`inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider ${
+                          shortlistedCareerIds.has(career._id)
+                            ? "text-rose-500"
+                            : "text-slate-400 hover:text-rose-500"
+                        }`}
+                      >
+                        <Heart
+                          className="w-4 h-4"
+                          fill={
+                            shortlistedCareerIds.has(career._id)
+                              ? "currentColor"
+                              : "none"
+                          }
+                        />
+                        {shortlistedCareerIds.has(career._id)
+                          ? "Saved"
+                          : "Save"}
+                      </button>
+                    </div>
                     <h3 className="text-xl font-bold text-slate-900 mb-2">
                       {career.title}
                     </h3>
@@ -205,11 +309,49 @@ const industries = industriesResponse?.data || []
               )}
             </div>
           )}
+
+          {careers.length > 0 && (
+            <div className="mt-8 flex items-center justify-between rounded-2xl bg-white px-6 py-4 shadow-sm">
+              <p className="text-sm text-slate-500">
+                Showing page {currentPage} of {totalCareerPages} · {totalCareers} careers
+              </p>
+
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  disabled={currentPage === 1}
+                  onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+                  className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  Previous
+                </button>
+                <button
+                  type="button"
+                  disabled={currentPage >= totalCareerPages}
+                  onClick={() =>
+                    setCurrentPage((page) =>
+                      Math.min(totalCareerPages, page + 1)
+                    )
+                  }
+                  className="rounded-lg bg-indigo-500 px-4 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </main>
 
       {/* Modals */}
-      <CareerDetailModal career={selectedCareer} onClose={() => setSelectedCareer(null)} />
+      <CareerDetailModal
+        career={selectedCareer}
+        onClose={() => setSelectedCareer(null)}
+        isShortlisted={
+          selectedCareer ? shortlistedCareerIds.has(selectedCareer._id) : false
+        }
+        onToggleShortlist={toggleCareerShortlist}
+      />
     </div>
   )
 }

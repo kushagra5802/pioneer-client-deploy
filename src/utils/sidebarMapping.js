@@ -1,4 +1,5 @@
 import React from "react";
+import { Compass, FolderOpen } from "lucide-react";
 
 import Overview from "../assets/svg/dashboard.svg";
 import ClientIcon from "../assets/svg/client.svg"; // Renamed to avoid conflict with the variable name
@@ -62,6 +63,18 @@ const SidebarMapping = () => {
         path: "/studentBlog",
         name: "Student Blog",
         icon: <img src={Blog} alt='' className='sidebar-icons' />
+      },
+      {
+        id: 7,
+        path: "/resources",
+        name: "Resources",
+        icon: <FolderOpen className='h-5 w-5 text-slate-700' />
+      },
+      {
+        id: 8,
+        path: "/explore-city",
+        name: "Explore My City",
+        icon: <Compass className='h-5 w-5 text-slate-700' />
       },
       {
         id: 6,

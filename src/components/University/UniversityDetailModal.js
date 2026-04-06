@@ -2,18 +2,28 @@
 
 import { X, Heart, TrendingUp, ExternalLink } from "lucide-react"
 
-export default function UniversityDetailModal({ university, onClose }) {
+export default function UniversityDetailModal({
+  university,
+  onClose,
+  isShortlisted,
+  onToggleShortlist,
+}) {
   if (!university) return null
 
   const {
     name,
     city,
     state,
+    establishedYear,
     rankAccreditation,
     modeOfEntry,
     acceptanceRate,
+    feesRange,
     entranceExams = [],
     cutOffTrend,
+    coursesOffered = [],
+    facilities = [],
+    specializations = [],
     officialWebsite,
   } = university
 
@@ -24,7 +34,7 @@ export default function UniversityDetailModal({ university, onClose }) {
         onClick={onClose}
       />
 
-      <div className="relative w-full max-w-xl mx-4 bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div className="relative w-full max-w-4xl mx-4 bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="bg-slate-800 px-8 py-8">
           <div className="flex items-start justify-between mb-4">
@@ -35,8 +45,19 @@ export default function UniversityDetailModal({ university, onClose }) {
             )}
 
             <div className="flex items-center gap-3">
-              <button className="w-10 h-10 rounded-full bg-teal-500 hover:bg-teal-600 flex items-center justify-center transition-colors">
-                <Heart className="w-5 h-5 text-white" />
+              <button
+                type="button"
+                onClick={() => onToggleShortlist?.(university)}
+                className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                  isShortlisted
+                    ? "bg-rose-500 hover:bg-rose-600"
+                    : "bg-teal-500 hover:bg-teal-600"
+                }`}
+              >
+                <Heart
+                  className="w-5 h-5 text-white"
+                  fill={isShortlisted ? "currentColor" : "none"}
+                />
               </button>
               <button
                 onClick={onClose}
@@ -57,7 +78,15 @@ export default function UniversityDetailModal({ university, onClose }) {
         {/* Content */}
         <div className="p-8">
           {/* Mode of Entry & Acceptance Rate */}
-          <div className="grid grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+            <div>
+              <h3 className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                Established
+              </h3>
+              <p className="text-slate-900 font-semibold">
+                {establishedYear || "—"}
+              </p>
+            </div>
             <div>
               <h3 className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
                 Mode of Entry
@@ -72,6 +101,14 @@ export default function UniversityDetailModal({ university, onClose }) {
               </h3>
               <p className="text-slate-900 font-semibold">
                 {acceptanceRate || "—"}
+              </p>
+            </div>
+            <div>
+              <h3 className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                Fees Range
+              </h3>
+              <p className="text-slate-900 font-semibold">
+                {feesRange || "—"}
               </p>
             </div>
           </div>
@@ -111,8 +148,62 @@ export default function UniversityDetailModal({ university, onClose }) {
             </div>
           </div>
 
+          {coursesOffered.length > 0 && (
+            <div className="bg-slate-50 rounded-xl p-5 mb-6">
+              <h3 className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                Courses Offered
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {coursesOffered.map((course, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1.5 bg-white text-slate-700 text-sm font-medium rounded-lg border border-slate-200"
+                  >
+                    {course}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {specializations.length > 0 && (
+            <div className="bg-slate-50 rounded-xl p-5 mb-6">
+              <h3 className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                Specializations
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {specializations.map((item, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1.5 bg-white text-slate-700 text-sm font-medium rounded-lg border border-slate-200"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {facilities.length > 0 && (
+            <div className="bg-slate-50 rounded-xl p-5 mb-8">
+              <h3 className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                Facilities
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {facilities.map((item, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1.5 bg-white text-slate-700 text-sm font-medium rounded-lg border border-slate-200"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Visit Website */}
-          {officialWebsite && (
+          {/* {officialWebsite && (
             <button
               onClick={() => window.open(officialWebsite, "_blank")}
               className="w-full py-4 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl 
@@ -121,6 +212,22 @@ export default function UniversityDetailModal({ university, onClose }) {
               <ExternalLink className="w-4 h-4" />
               Visit Official Website
             </button>
+          )} */}
+          {officialWebsite && (
+            <a
+              href={
+                officialWebsite.startsWith("http")
+                  ? officialWebsite
+                  : `https://${officialWebsite}`
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl 
+                transition-colors flex items-center justify-center gap-2 uppercase tracking-wider text-sm"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Visit Official Website
+            </a>
           )}
         </div>
       </div>
