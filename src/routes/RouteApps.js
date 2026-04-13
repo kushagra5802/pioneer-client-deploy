@@ -41,17 +41,26 @@ const RouteApps = () => {
   const user = JSON.parse(userString);
   const welcomeProfile = readWelcomeProfile();
   const hasCompletedWelcome = Boolean(welcomeProfile?.grade);
-  // const role = user?.role;
-  let role;
-  if (user?.type==='client'){
-    role=user?.role
-  }
-  else{
-    role="STUDENT"
+  const isSchoolUser = user?.type === "client";
+  const role = isSchoolUser ? user?.role : "STUDENT";
+  const shouldShowWelcome = !isSchoolUser;
+  const defaultAuthenticatedRoute = isSchoolUser
+    ? "/assets"
+    : hasCompletedWelcome
+      ? "/dashboard"
+      : "/welcome";
+
+  if (
+    isLoggedIn &&
+    shouldShowWelcome &&
+    !hasCompletedWelcome &&
+    location.pathname !== "/welcome"
+  ) {
+    return <Navigate to="/welcome" replace />;
   }
 
-  if (isLoggedIn && !hasCompletedWelcome && location.pathname !== "/welcome") {
-    return <Navigate to="/welcome" replace />;
+  if (isLoggedIn && isSchoolUser && location.pathname === "/welcome") {
+    return <Navigate to="/assets" replace />;
   }
 
   return (
@@ -72,7 +81,7 @@ const RouteApps = () => {
                   path='*'
                   element={
                     <Navigate
-                      to={hasCompletedWelcome ? "/dashboard" : "/welcome"}
+                      to={defaultAuthenticatedRoute}
                       replace
                     />
                   }
