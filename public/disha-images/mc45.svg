@@ -1,0 +1,25 @@
+<svg viewBox="0 0 380 130" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect x="10" y="10" width="360" height="110" rx="8" fill="#EEF7F7" stroke="#0E7C7B" stroke-width="2"/>
+  <text x="190" y="32" text-anchor="middle" font-size="11" fill="#5A6E75">Study for 3 seconds, then recall in order →</text>
+  <!-- Digit boxes -->
+  <g>
+    <rect x="28" y="44" width="48" height="56" rx="8" fill="white" stroke="#0E7C7B" stroke-width="2"/>
+    <text x="52" y="82" text-anchor="middle" font-size="36" font-weight="bold" fill="#1B3A5C">7</text>
+
+    <rect x="86" y="44" width="48" height="56" rx="8" fill="white" stroke="#0E7C7B" stroke-width="2"/>
+    <text x="110" y="82" text-anchor="middle" font-size="36" font-weight="bold" fill="#1B3A5C">2</text>
+
+    <rect x="144" y="44" width="48" height="56" rx="8" fill="white" stroke="#0E7C7B" stroke-width="2"/>
+    <text x="168" y="82" text-anchor="middle" font-size="36" font-weight="bold" fill="#1B3A5C">5</text>
+
+    <rect x="202" y="44" width="48" height="56" rx="8" fill="white" stroke="#0E7C7B" stroke-width="2"/>
+    <text x="226" y="82" text-anchor="middle" font-size="36" font-weight="bold" fill="#1B3A5C">9</text>
+
+    <rect x="260" y="44" width="48" height="56" rx="8" fill="white" stroke="#0E7C7B" stroke-width="2"/>
+    <text x="284" y="82" text-anchor="middle" font-size="36" font-weight="bold" fill="#1B3A5C">1</text>
+
+    <rect x="318" y="44" width="48" height="56" rx="8" fill="white" stroke="#0E7C7B" stroke-width="2"/>
+    <text x="342" y="82" text-anchor="middle" font-size="36" font-weight="bold" fill="#1B3A5C">4</text>
+  </g>
+  <text x="190" y="118" text-anchor="middle" font-size="10" fill="#0E7C7B" font-weight="bold">Digit Span Forward — type in the SAME order</text>
+</svg>

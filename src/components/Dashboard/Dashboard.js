@@ -266,7 +266,7 @@ export default function DashboardPage() {
           {/* Main Grid */}
           <div className="grid grid-cols-3 gap-6">
             <div className="col-span-2 grid gap-6">
-              <div className="bg-indigo-500 rounded-[24px] p-6 shadow-sm text-white">
+              <div className="bg-slate-800 rounded-[24px] p-6 shadow-sm text-white">
                 <p className="text-[11px] tracking-[0.18em] uppercase font-semibold text-indigo-100">
                   Next Step
                 </p>

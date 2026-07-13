@@ -1,0 +1,27 @@
+<svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- Sitar partial view ~70% visible -->
+  <!-- Tuning pegs at top -->
+  <ellipse cx="95" cy="45" rx="18" ry="10" fill="#1a3a6b"/>
+  <circle cx="78" cy="42" r="5" fill="#e07020"/>
+  <circle cx="95" cy="38" r="5" fill="#e07020"/>
+  <circle cx="112" cy="42" r="5" fill="#e07020"/>
+  <!-- Neck (long) -->
+  <rect x="87" y="55" width="16" height="100" fill="#243a5e"/>
+  <!-- Frets -->
+  <line x1="84" y1="70" x2="116" y2="70" stroke="#3bbee8" stroke-width="1.5"/>
+  <line x1="84" y1="85" x2="116" y2="85" stroke="#3bbee8" stroke-width="1.5"/>
+  <line x1="84" y1="100" x2="116" y2="100" stroke="#3bbee8" stroke-width="1.5"/>
+  <line x1="84" y1="115" x2="116" y2="115" stroke="#3bbee8" stroke-width="1.5"/>
+  <line x1="84" y1="130" x2="116" y2="130" stroke="#3bbee8" stroke-width="1.5"/>
+  <!-- Gourd body -->
+  <ellipse cx="95" cy="210" rx="55" ry="62" fill="#1a3a6b"/>
+  <!-- sound hole lines -->
+  <line x1="75" y1="200" x2="115" y2="200" stroke="#3bbee8" stroke-width="1.5"/>
+  <line x1="75" y1="212" x2="115" y2="212" stroke="#3bbee8" stroke-width="1.5"/>
+  <line x1="75" y1="224" x2="115" y2="224" stroke="#3bbee8" stroke-width="1.5"/>
+  <!-- strings -->
+  <line x1="90" y1="55" x2="90" y2="165" stroke="#c8a060" stroke-width="1"/>
+  <line x1="95" y1="55" x2="95" y2="165" stroke="#c8a060" stroke-width="1"/>
+  <line x1="100" y1="55" x2="100" y2="165" stroke="#c8a060" stroke-width="1"/>
+  <text x="95" y="290" text-anchor="middle" font-size="10" fill="#888">~70% visible. What instrument?</text>
+</svg>

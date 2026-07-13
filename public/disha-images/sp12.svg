@@ -1,0 +1,41 @@
+<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- Room A -->
+  <rect x="20" y="40" width="120" height="100" fill="#e8f0f8" stroke="#004877" stroke-width="2"/>
+  <text x="80" y="100" text-anchor="middle" font-size="16" fill="#004877" font-weight="bold">Room A</text>
+  <!-- Person P facing North -->
+  <circle cx="60" cy="85" r="10" fill="#004877"/>
+  <text x="60" y="89" text-anchor="middle" font-size="8" fill="white" font-weight="bold">P</text>
+  <!-- Arrow showing North direction -->
+  <line x1="60" y1="75" x2="60" y2="58" stroke="#004877" stroke-width="1.5" marker-end="url(#na)"/>
+  <text x="73" y="68" font-size="8" fill="#666">Facing North</text>
+
+  <!-- Door in east wall of Room A -->
+  <rect x="138" y="70" width="4" height="30" fill="#c8a060"/>
+
+  <!-- Room B -->
+  <rect x="180" y="40" width="120" height="100" fill="#e0f0e8" stroke="#27ae60" stroke-width="2"/>
+  <text x="240" y="100" text-anchor="middle" font-size="16" fill="#27ae60" font-weight="bold">Room B</text>
+
+  <!-- N compass -->
+  <line x1="310" y1="20" x2="310" y2="5" stroke="#004877" stroke-width="2"/>
+  <polygon points="310,5 306,14 314,14" fill="#004877"/>
+  <text x="315" y="12" font-size="10" fill="#004877" font-weight="bold">N</text>
+
+  <!-- Explanation path -->
+  <text x="80" y="160" text-anchor="middle" font-size="9" fill="#666">Facing North</text>
+  <text x="80" y="172" text-anchor="middle" font-size="9" fill="#666">→ Turn 180° → now facing South</text>
+  <text x="80" y="184" text-anchor="middle" font-size="9" fill="#666">→ walk through door →</text>
+  <text x="240" y="172" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="bold">Now in Room B, facing South</text>
+
+  <!-- dashed path arrow -->
+  <path d="M60,90 Q60,130 140,90 Q200,65 230,90" fill="none" stroke="#e07020" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#oa)"/>
+
+  <defs>
+    <marker id="na" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <polygon points="0,6 3,0 6,6" fill="#004877"/>
+    </marker>
+    <marker id="oa" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <polygon points="0,6 3,0 6,6" fill="#e07020"/>
+    </marker>
+  </defs>
+</svg>

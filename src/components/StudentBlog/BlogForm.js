@@ -197,7 +197,7 @@ function BlogForm({ onClose }) {
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
-      <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-3xl p-8 md:p-12 text-white">
+      <div className="bg-slate-800 rounded-3xl p-8 md:p-12 text-white">
         <div className="max-w-2xl">
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -216,7 +216,7 @@ function BlogForm({ onClose }) {
               placeholder="Blog Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full bg-indigo-500 placeholder-indigo-200 text-white rounded-lg px-4 py-3"
+              className="w-full bg-slate-500 placeholder-indigo-200 text-white rounded-lg px-4 py-3"
               required
             />
 
@@ -226,7 +226,7 @@ function BlogForm({ onClose }) {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={6}
-              className="w-full bg-indigo-500 placeholder-indigo-200 text-white rounded-lg px-4 py-3 resize-none"
+              className="w-full bg-slate-500 placeholder-indigo-200 text-white rounded-lg px-4 py-3 resize-none"
               required
             />
 

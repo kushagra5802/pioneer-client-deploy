@@ -1,0 +1,23 @@
+<svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect x="10" y="10" width="260" height="140" rx="8" fill="#FFF8EE" stroke="#C47A00" stroke-width="2"/>
+  <!-- Broken bangle arc (most of circle, with break) -->
+  <path d="M80,110 A52,52 0 1,1 118,62" fill="none" stroke="#C47A00" stroke-width="8" stroke-linecap="round"/>
+  <!-- Break mark -->
+  <line x1="74" y1="102" x2="86" y2="118" stroke="#B03020" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Decorative dots on bangle -->
+  <circle cx="98" cy="60" r="3.5" fill="#F9C464"/>
+  <circle cx="78" cy="68" r="3" fill="#F9C464"/>
+  <circle cx="64" cy="82" r="3" fill="#F9C464"/>
+  <circle cx="60" cy="100" r="3" fill="#F9C464"/>
+  <circle cx="66" cy="118" r="3" fill="#F9C464"/>
+  <circle cx="80" cy="132" r="3.5" fill="#F9C464"/>
+  <circle cx="98" cy="140" r="3" fill="#F9C464"/>
+  <circle cx="116" cy="138" r="3" fill="#F9C464"/>
+  <circle cx="130" cy="128" r="3" fill="#F9C464"/>
+  <!-- Labels -->
+  <text x="190" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#C47A00">BROKEN</text>
+  <text x="190" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="#C47A00">BANGLE</text>
+  <text x="190" y="112" text-anchor="middle" font-size="10" fill="#5A6E75">List uses in</text>
+  <text x="190" y="128" text-anchor="middle" font-size="12" font-weight="bold" fill="#B03020">90 seconds</text>
+  <text x="190" y="144" text-anchor="middle" font-size="9" fill="#5A6E75">Be as creative as possible!</text>
+</svg>

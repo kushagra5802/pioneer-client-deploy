@@ -1,0 +1,33 @@
+<svg viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- Pair 1 (rule shown) -->
+  <text x="110" y="14" text-anchor="middle" font-size="10" fill="#004877" font-weight="bold">Pair 1 (rule shown)</text>
+
+  <!-- A: filled circle inside square outline -->
+  <rect x="20" y="22" width="80" height="80" fill="none" stroke="#1a3a6b" stroke-width="2.5"/>
+  <circle cx="60" cy="62" r="26" fill="#5b88c0"/>
+  <text x="60" y="115" text-anchor="middle" font-size="9" fill="#666">A: filled●inside□</text>
+
+  <text x="115" y="67" text-anchor="middle" font-size="20" fill="#004877">→</text>
+
+  <!-- B: filled square inside circle outline -->
+  <circle cx="150" cy="62" r="40" fill="none" stroke="#1a3a6b" stroke-width="2.5"/>
+  <rect x="128" y="40" width="44" height="44" fill="#5b88c0"/>
+  <text x="150" y="115" text-anchor="middle" font-size="9" fill="#666">B: □inside filled○</text>
+
+  <text x="205" y="67" text-anchor="middle" font-size="16" fill="#888">::</text>
+
+  <!-- Pair 2 (apply rule) -->
+  <text x="340" y="14" text-anchor="middle" font-size="10" fill="#004877" font-weight="bold">Pair 2 (apply rule)</text>
+
+  <!-- C: filled triangle inside circle outline -->
+  <circle cx="250" cy="62" r="40" fill="none" stroke="#3bbee8" stroke-width="2.5"/>
+  <polygon points="250,28 278,90 222,90" fill="#3bbee8"/>
+  <text x="250" y="115" text-anchor="middle" font-size="9" fill="#666">C: △inside○</text>
+
+  <text x="305" y="67" text-anchor="middle" font-size="20" fill="#004877">→</text>
+
+  <!-- D: filled circle inside triangle outline (correct answer) -->
+  <polygon points="380,22 420,102 340,102" fill="none" stroke="#3bbee8" stroke-width="2.5"/>
+  <circle cx="380" cy="72" r="22" fill="#3bbee8"/>
+  <text x="380" y="115" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="bold">D ✓: ○inside△</text>
+</svg>

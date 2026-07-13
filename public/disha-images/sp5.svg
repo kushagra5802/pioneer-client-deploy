@@ -1,0 +1,34 @@
+<svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- Step 1: Square -->
+  <text x="45" y="15" text-anchor="middle" font-size="10" fill="#004877" font-weight="bold">Step 1: Square</text>
+  <rect x="10" y="25" width="70" height="70" fill="none" stroke="#004877" stroke-width="2"/>
+  <text x="120" y="65" text-anchor="middle" font-size="18" fill="#888">→</text>
+
+  <!-- Step 2: First diagonal fold -->
+  <text x="165" y="15" text-anchor="middle" font-size="10" fill="#004877" font-weight="bold">Fold 1 (diagonal)</text>
+  <polygon points="135,25 205,25 205,95" fill="#9bbde0" stroke="#004877" stroke-width="2"/>
+  <line x1="135" y1="25" x2="205" y2="95" stroke="#e0a020" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="245" y="65" text-anchor="middle" font-size="18" fill="#888">→</text>
+
+  <!-- Step 3: Second fold + punch -->
+  <text x="285" y="15" text-anchor="middle" font-size="10" fill="#004877" font-weight="bold">Fold 2 + Punch</text>
+  <polygon points="255,25 290,60 255,95" fill="#7dabb8" stroke="#004877" stroke-width="2"/>
+  <circle cx="265" cy="75" r="5" fill="#e74c3c"/>
+  <text x="340" y="65" text-anchor="middle" font-size="18" fill="#888">→</text>
+
+  <!-- Options -->
+  <text x="365" y="120" text-anchor="middle" font-size="9" fill="#c0392b">A: 1 hole</text>
+  <rect x="345" y="125" width="40" height="40" fill="none" stroke="#004877" stroke-width="1.5"/>
+  <circle cx="365" cy="145" r="4" fill="#e74c3c"/>
+
+  <text x="405" y="120" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="bold">B ✓: 4 holes</text>
+  <!-- nothing here, label only since B is next col -->
+
+  <!-- Unfolded result B: 4 symmetrical holes -->
+  <rect x="345" y="125" width="40" height="40" fill="none" stroke="#27ae60" stroke-width="2"/>
+  <!-- 4 symmetrical holes at each quarter corner -->
+  <circle cx="352" cy="132" r="3.5" fill="#27ae60"/>
+  <circle cx="378" cy="132" r="3.5" fill="#27ae60"/>
+  <circle cx="352" cy="158" r="3.5" fill="#27ae60"/>
+  <circle cx="378" cy="158" r="3.5" fill="#27ae60"/>
+</svg>

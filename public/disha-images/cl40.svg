@@ -1,0 +1,28 @@
+<svg viewBox="0 0 340 180" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- See-saw beam -->
+  <rect x="40" y="100" width="260" height="10" rx="3" fill="#5b88c0"/>
+  <!-- Pivot triangle -->
+  <polygon points="170,110 148,145 192,145" fill="#1a3a6b"/>
+  <!-- Base -->
+  <rect x="130" y="145" width="80" height="8" rx="2" fill="#888"/>
+  <!-- Left weight: 40 kg at 3m from pivot -->
+  <rect x="55" y="68" width="60" height="32" rx="4" fill="#e07020"/>
+  <text x="85" y="88" text-anchor="middle" font-size="13" fill="white" font-weight="bold">40 kg</text>
+  <!-- Right weight: 60 kg at ? from pivot -->
+  <rect x="220" y="68" width="60" height="32" rx="4" fill="#3bbee8"/>
+  <text x="250" y="88" text-anchor="middle" font-size="13" fill="white" font-weight="bold">60 kg</text>
+  <!-- Distance labels -->
+  <line x1="85" y1="115" x2="170" y2="115" stroke="#e07020" stroke-width="1.5" marker-end="url(#a1)" marker-start="url(#a2)"/>
+  <text x="127" y="128" text-anchor="middle" font-size="10" fill="#e07020">3 m ←</text>
+  <line x1="170" y1="115" x2="250" y2="115" stroke="#3bbee8" stroke-width="1.5" marker-end="url(#a3)" marker-start="url(#a4)"/>
+  <text x="210" y="128" text-anchor="middle" font-size="10" fill="#3bbee8">→ 2 m</text>
+  <!-- Formula box -->
+  <rect x="40" y="155" width="260" height="20" rx="4" fill="#e8f4e8" stroke="#27ae60" stroke-width="1"/>
+  <text x="170" y="168" text-anchor="middle" font-size="10" fill="#1a3a6b">40 × 3 = 60 × x  →  120 = 60x  →  x = 2 m</text>
+  <defs>
+    <marker id="a1" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#e07020"/></marker>
+    <marker id="a2" markerWidth="6" markerHeight="6" refX="0" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6" fill="#e07020"/></marker>
+    <marker id="a3" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#3bbee8"/></marker>
+    <marker id="a4" markerWidth="6" markerHeight="6" refX="0" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6" fill="#3bbee8"/></marker>
+  </defs>
+</svg>

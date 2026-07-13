@@ -1,0 +1,20 @@
+<svg viewBox="0 0 380 160" xmlns="http://www.w3.org/2000/svg" font-family="serif">
+  <text x="60" y="18" text-anchor="middle" font-size="11" fill="#004877" font-weight="bold" font-family="sans-serif">Original</text>
+  <text x="60" y="95" text-anchor="middle" font-size="52" fill="#1a3a6b">नम</text>
+
+  <!-- vertical axis -->
+  <line x1="150" y1="10" x2="150" y2="150" stroke="#e0a020" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="150" y="155" text-anchor="middle" font-size="9" fill="#888" font-family="sans-serif">← mirror line →</text>
+  <text x="145" y="18" text-anchor="end" font-size="11" fill="#888" font-family="sans-serif">AXIS</text>
+
+  <!-- Option A (wrong) -->
+  <text x="235" y="18" text-anchor="middle" font-size="11" fill="#c0392b" font-family="sans-serif">A (wrong)</text>
+  <text x="235" y="95" text-anchor="middle" font-size="52" fill="#e8a0a0">मन</text>
+
+  <!-- Option B (correct) -->
+  <text x="325" y="18" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="bold" font-family="sans-serif">B ✓ Correct</text>
+  <!-- Horizontally flipped नम rendered as mirror text using transform -->
+  <g transform="translate(650,0) scale(-1,1)">
+    <text x="325" y="95" text-anchor="middle" font-size="52" fill="#7dbb8a">नम</text>
+  </g>
+</svg>

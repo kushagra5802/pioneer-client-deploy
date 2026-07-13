@@ -87,9 +87,10 @@ export default function WeekContentView({
 
       {/* Content Section */}
       <Section title="Content">
-        <div className="prose max-w-none">
-          {weekData.content}
-        </div>
+        <div
+          className="prose max-w-none"
+          dangerouslySetInnerHTML={{ __html: weekData.content }}
+        />
       </Section>
 
       {/* Resources Section */}

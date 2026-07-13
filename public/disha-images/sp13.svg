@@ -1,0 +1,23 @@
+<svg viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- 4 arrow+dot figures. A,B,C follow pattern; D breaks it -->
+  <!-- A: 0° arrow pointing right, dot on left side -->
+  <text x="52" y="14" text-anchor="middle" font-size="10" fill="#666">A (0°)</text>
+  <polygon points="25,55 65,40 60,48 80,48 80,62 60,62 65,70" fill="#5b88c0"/>
+  <circle cx="22" cy="55" r="6" fill="#e07020"/>
+
+  <!-- B: 90° CW arrow pointing down, dot on top -->
+  <text x="152" y="14" text-anchor="middle" font-size="10" fill="#666">B (90° CW)</text>
+  <polygon points="132,30 152,80 148,65 148,85 162,85 162,65 158,80" fill="#5b88c0" transform="rotate(90 152 55)"/>
+  <circle cx="152" cy="22" r="6" fill="#e07020"/>
+
+  <!-- C: 180° arrow pointing left, dot on right -->
+  <text x="252" y="14" text-anchor="middle" font-size="10" fill="#666">C (180°)</text>
+  <polygon points="275,55 235,40 240,48 220,48 220,62 240,62 235,70" fill="#5b88c0"/>
+  <circle cx="278" cy="55" r="6" fill="#e07020"/>
+
+  <!-- D: 270° arrow pointing up, dot position is WRONG (should be bottom, but placed wrong) -->
+  <text x="360" y="14" text-anchor="middle" font-size="10" fill="#e74c3c" font-weight="bold">D ✗ (270° wrong dot)</text>
+  <polygon points="340,80 360,30 356,45 356,25 370,25 370,45 366,30" fill="#e8a0a0" transform="rotate(270 360 55)"/>
+  <circle cx="360" cy="22" r="6" fill="#e74c3c"/>
+  <text x="360" y="115" text-anchor="middle" font-size="8" fill="#e74c3c">Dot position breaks pattern</text>
+</svg>

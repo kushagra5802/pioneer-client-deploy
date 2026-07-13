@@ -1,0 +1,35 @@
+<svg viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- Earth panel -->
+  <rect x="10" y="10" width="130" height="160" rx="8" fill="#EEF5F8" stroke="#C8D8DC" stroke-width="1.5"/>
+  <text x="75" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="#1B3A5C">Earth</text>
+  <text x="75" y="42" text-anchor="middle" font-size="10" fill="#5A6E75">g = 9.8 m/s²</text>
+  <!-- Earth globe hint -->
+  <circle cx="75" cy="55" r="10" fill="#3BBEE8" opacity="0.5"/>
+  <!-- Pivot -->
+  <line x1="75" y1="65" x2="75" y2="68" stroke="#1B3A5C" stroke-width="3"/>
+  <!-- String -->
+  <line x1="75" y1="68" x2="75" y2="130" stroke="#1B3A5C" stroke-width="2"/>
+  <!-- Bob -->
+  <circle cx="75" cy="143" r="14" fill="#1B3A5C"/>
+  <!-- Swing arc (tight) -->
+  <path d="M52,118 Q75,132 98,118" fill="none" stroke="#C47A00" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="75" y="172" text-anchor="middle" font-size="10" fill="#C47A00" font-weight="bold">Normal period</text>
+  <text x="75" y="184" text-anchor="middle" font-size="9" fill="#5A6E75">T = 2π√(L/g)</text>
+
+  <!-- Moon panel -->
+  <rect x="178" y="10" width="130" height="160" rx="8" fill="#EEF5F8" stroke="#C8D8DC" stroke-width="1.5"/>
+  <text x="243" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="#1B3A5C">Moon 🌙</text>
+  <text x="243" y="42" text-anchor="middle" font-size="10" fill="#5A6E75">g = 1.63 m/s² (1/6)</text>
+  <!-- Moon globe hint -->
+  <circle cx="243" cy="55" r="10" fill="#D8D8D8" opacity="0.7"/>
+  <!-- Pivot -->
+  <line x1="243" y1="65" x2="243" y2="68" stroke="#5A9DC0" stroke-width="3"/>
+  <!-- String -->
+  <line x1="243" y1="68" x2="243" y2="130" stroke="#5A9DC0" stroke-width="2"/>
+  <!-- Bob -->
+  <circle cx="243" cy="143" r="14" fill="#5A9DC0"/>
+  <!-- Swing arc (wide = slower) -->
+  <path d="M200,100 Q243,132 286,100" fill="none" stroke="#B03020" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="243" y="172" text-anchor="middle" font-size="10" fill="#B03020" font-weight="bold">SLOWER (~2.45×)</text>
+  <text x="243" y="184" text-anchor="middle" font-size="9" fill="#5A6E75">Less g → longer T</text>
+</svg>

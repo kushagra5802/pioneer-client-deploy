@@ -1,0 +1,29 @@
+<svg viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- Arrow series rotating 45° CW each step -->
+  <!-- Fig1: 0° - arrow pointing right -->
+  <text x="40" y="12" text-anchor="middle" font-size="9" fill="#666">Fig 1 (0°)</text>
+  <polygon points="20,55 60,40 55,48 75,48 75,62 55,62 60,70" fill="#5b88c0"/>
+
+  <!-- Fig2: 45° CW -->
+  <text x="115" y="12" text-anchor="middle" font-size="9" fill="#666">Fig 2 (45°)</text>
+  <polygon points="95,35 120,75 115,62 128,75 118,82 105,70 110,83" fill="#5b88c0" transform="rotate(45 115 60)"/>
+
+  <!-- Fig3: 90° CW - pointing down -->
+  <text x="190" y="12" text-anchor="middle" font-size="9" fill="#666">Fig 3 (90°)</text>
+  <polygon points="170,38 210,38 195,38 195,58 205,58 190,80 175,58 185,58 185,38" fill="#5b88c0"/>
+
+  <!-- Fig4: 135° -->
+  <text x="265" y="12" text-anchor="middle" font-size="9" fill="#666">Fig 4 (135°)</text>
+  <polygon points="245,38 210,38 195,38 195,58 205,58 190,80 175,58 185,58 185,38" fill="#5b88c0" transform="rotate(135 265 60)"/>
+
+  <!-- Fig5: 180° - pointing left -->
+  <text x="340" y="12" text-anchor="middle" font-size="9" fill="#666">Fig 5 (180°)</text>
+  <polygon points="360,55 320,40 325,48 305,48 305,62 325,62 320,70" fill="#5b88c0"/>
+
+  <text x="398" y="55" text-anchor="middle" font-size="18" fill="#888">→</text>
+
+  <!-- Fig6: ? box -->
+  <rect x="415" y="22" width="60" height="75" fill="#fff8e8" stroke="#c07020" stroke-width="2" stroke-dasharray="5,3" rx="4"/>
+  <text x="445" y="65" text-anchor="middle" font-size="22" fill="#c07020" font-weight="bold">?</text>
+  <text x="445" y="106" text-anchor="middle" font-size="8" fill="#c07020">(+45° CW = 225°)</text>
+</svg>

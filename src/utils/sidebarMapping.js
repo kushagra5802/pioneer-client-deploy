@@ -1,5 +1,5 @@
 import React from "react";
-import { Compass, FolderOpen } from "lucide-react";
+import { Compass, FolderOpen, UserCircle } from "lucide-react";
 
 import Overview from "../assets/svg/dashboard.svg";
 import ClientIcon from "../assets/svg/client.svg"; // Renamed to avoid conflict with the variable name
@@ -83,11 +83,11 @@ const SidebarMapping = () => {
         icon: <img src={CV} alt='' className='sidebar-icons' />
       },
       {
-        id: 13,
-        path: "/settings",
-        name: "Settings",
-        icon: <img src={Settings} alt='' className='sidebar-icons' />
-      },
+        id: 20,
+        path: "/profile",
+        name: "My Profile",
+        icon: <UserCircle className='h-5 w-5 text-slate-700' />
+      }
     ],
     SCHOOL_ADMIN: [
       {
@@ -95,13 +95,7 @@ const SidebarMapping = () => {
         path: "/assets",
         name: "Assets",
         icon: <img src={Overview} alt='' />
-      },
-      {
-        id: 13,
-        path: "/settings",
-        name: "Settings",
-        icon: <img src={Settings} alt='' className='sidebar-icons' />
-      },
+      }
     ],
     superadmin: [
       {
@@ -136,13 +130,6 @@ const SidebarMapping = () => {
         name: "School",
         icon: Client
       },
-
-      // {
-      //   id: 2,
-      //   path: "/users",
-      //   name: "Users",
-      //   icon: <img src={Users} alt='' />
-      // },
       {
         id: 11,
         path: "/settings",
