@@ -1,10 +1,11 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import {  } from "lucide-react";
 import { X, User, MapPin, Users, FileSpreadsheet, Upload, CheckCircle2, AlertCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
+import { useQueryClient } from "react-query";
 
 import useAxiosInstance from "../../lib/useAxiosInstance";
 import AssetsContext from "../../context/assetContext";
@@ -28,9 +29,16 @@ const classes = ["6th", "7th", "8th", "9th", "10th", "11th", "12th"];
 const sections = ["A", "B", "C", "D"];
 const genders = ["Male", "Female", "Other"];
 
+const portalOptions = [
+  { value: "main", label: "Main portal only" },
+  { value: "neet", label: "NEET portal only" },
+  { value: "both", label: "Both portals" },
+];
+
 /* -------------------- VALIDATION -------------------- */
 
 const schema = Yup.object({
+  portalAccess: Yup.string().oneOf(["main", "neet", "both"]).default("main"),
   personalInfo: Yup.object({
     fullName: Yup.string().required("Student name required"),
     dateOfBirth: Yup.string().required("Date of birth required"),
@@ -62,14 +70,72 @@ const schema = Yup.object({
   }),
 });
 
+/* -------------------- HELPERS -------------------- */
+
+const toDateInputValue = (value) => {
+  if (!value) return "";
+  return String(value).slice(0, 10);
+};
+
+const buildDefaultValues = (student) => {
+  if (!student) {
+    return {
+      portalAccess: "main",
+      personalInfo: { gender: "Male" },
+    };
+  }
+
+  const access = Array.isArray(student.portalAccess) ? student.portalAccess : ["main"];
+  const portalAccess =
+    access.includes("main") && access.includes("neet")
+      ? "both"
+      : access.includes("neet")
+      ? "neet"
+      : "main";
+
+  return {
+    portalAccess,
+    personalInfo: {
+      fullName: student.personalInfo?.fullName || "",
+      dateOfBirth: toDateInputValue(student.personalInfo?.dateOfBirth),
+      gender: student.personalInfo?.gender || "Male",
+    },
+    academicInfo: {
+      classGrade: student.academicInfo?.classGrade || "",
+      section: student.academicInfo?.section || "",
+      rollNumber: student.academicInfo?.rollNumber || "",
+    },
+    addressInfo: {
+      state: student.addressInfo?.state || "",
+      city: student.addressInfo?.city || "",
+      address: student.addressInfo?.address || "",
+    },
+    contactInfo: {
+      mobileNumber: student.contactInfo?.mobileNumber || "",
+      studentEmail: student.contactInfo?.studentEmail || "",
+    },
+    familyInfo: {
+      fatherName: student.familyInfo?.fatherName || "",
+      motherName: student.familyInfo?.motherName || "",
+      guardianName: student.familyInfo?.guardianName || "",
+      parentMobile: student.familyInfo?.parentMobile || "",
+      parentEmail: student.familyInfo?.parentEmail || "",
+      parentOccupation: student.familyInfo?.parentOccupation || "",
+    },
+  };
+};
+
 /* -------------------- COMPONENT -------------------- */
 
 const StudentForm = ({ isOpen }) => {
-  const { setStudentModalOpen, addStudent } = useContext(AssetsContext);
+  const { setStudentModalOpen, editingStudent, setEditingStudent } = useContext(AssetsContext);
   const axios = useAxiosInstance();
+  const queryClient = useQueryClient();
+  const isEditMode = Boolean(editingStudent);
   const [mode, setMode] = useState("form");
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [bulkPortal, setBulkPortal] = useState("main");
   const fileInputRef = useRef(null);
 
   const {
@@ -79,23 +145,39 @@ const StudentForm = ({ isOpen }) => {
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: {
-      personalInfo: { gender: "Male" },
-    },
+    defaultValues: buildDefaultValues(null),
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      reset(buildDefaultValues(editingStudent));
+      setMode("form");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, editingStudent]);
 
   const closeModal = () => {
     setStudentModalOpen(false);
-    reset();
+    setEditingStudent(null);
+    reset(buildDefaultValues(null));
   };
 
   const onSubmit = async (values) => {
     try {
-      const res = await axios.post("/api/students", values);
-      toast.success("Student added successfully");
+      if (isEditMode) {
+        await axios.put(`/api/students/${editingStudent.studentId}`, values);
+        toast.success("Student updated successfully");
+      } else {
+        await axios.post("/api/students", values);
+        toast.success("Student added successfully");
+      }
+      queryClient.invalidateQueries("students");
       closeModal();
     } catch (err) {
-      toast.error(err?.response?.data?.message || "Failed to add student");
+      toast.error(
+        err?.response?.data?.message ||
+          (isEditMode ? "Failed to update student" : "Failed to add student")
+      );
     }
   };
 
@@ -112,6 +194,7 @@ const StudentForm = ({ isOpen }) => {
 
       const formData = new FormData();
       formData.append("csvFile", file);
+      formData.append("portalAccess", bulkPortal);
 
       await axios.post("/api/students/uploadSheet", formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -173,12 +256,15 @@ const StudentForm = ({ isOpen }) => {
       <div className="relative w-full max-w-3xl mx-4 bg-slate-100 rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="bg-slate-800 px-8 py-6 flex justify-between">
-          <h2 className="text-xl font-semibold text-white">Add Student</h2>
+          <h2 className="text-xl font-semibold text-white">
+            {isEditMode ? "Edit Student" : "Add Student"}
+          </h2>
           <button onClick={closeModal}>
             <X className="text-white" />
           </button>
         </div>
 
+        {!isEditMode && (
         <div className="px-8 pt-6">
           <div className="flex gap-2 p-1 bg-slate-200 rounded-xl w-fit">
             <button
@@ -205,6 +291,7 @@ const StudentForm = ({ isOpen }) => {
             </button>
           </div>
         </div>
+        )}
 
         {mode === "bulk" ? (
           <div className="p-8">
@@ -232,6 +319,28 @@ const StudentForm = ({ isOpen }) => {
                 <Upload className="mx-auto mb-2 text-slate-400" />
                 <p className="text-sm">
                   {file ? file.name : "Click to upload Excel / CSV"}
+                </p>
+              </div>
+
+              {/* Portal access for the whole batch */}
+              <div className="mt-6 text-left">
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  Portal Access <span className="font-normal text-slate-400">(applied to all students in this file)</span>
+                </label>
+                <select
+                  value={bulkPortal}
+                  onChange={(e) => setBulkPortal(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white"
+                >
+                  {portalOptions.map((o) => (
+                    <option key={o.value} value={o.value}>
+                      {o.label}
+                    </option>
+                  ))}
+                </select>
+                <p className="mt-1.5 text-xs text-slate-400">
+                  Tip: to set access per-student, add a <strong>Portal Access</strong> column
+                  (<em>main</em>, <em>neet</em>, or <em>both</em>) to your sheet — it overrides this selection.
                 </p>
               </div>
 
@@ -294,6 +403,26 @@ const StudentForm = ({ isOpen }) => {
               </div>
             </section>
 
+            {/* Portal Access */}
+            <section className="bg-white p-6 rounded-xl">
+              <h3 className="text-sm font-semibold mb-4">Portal Access</h3>
+              <div className="grid grid-cols-2 gap-4 items-center">
+                <select
+                  {...register("portalAccess")}
+                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white"
+                >
+                  {portalOptions.map((o) => (
+                    <option key={o.value} value={o.value}>
+                      {o.label}
+                    </option>
+                  ))}
+                </select>
+                <p className="text-xs text-slate-400">
+                  Choose which portals this student can log into — the main Pioneer app, the Pioneer NEET app, or both.
+                </p>
+              </div>
+            </section>
+
             {/* Address */}
             <section className="bg-white p-6 rounded-xl">
               <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
@@ -348,7 +477,11 @@ const StudentForm = ({ isOpen }) => {
                 disabled={isSubmitting}
                 className="px-8 py-3 bg-indigo-500 text-white rounded-lg"
               >
-                {isSubmitting ? "Saving..." : "Add Student"}
+                {isSubmitting
+                  ? "Saving..."
+                  : isEditMode
+                  ? "Save Changes"
+                  : "Add Student"}
               </button>
             </div>
           </form>

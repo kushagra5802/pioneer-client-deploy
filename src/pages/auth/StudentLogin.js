@@ -60,8 +60,8 @@ const StudentLogin = () => {
       setIsLoading(true);
 
       const payload = showEmailLogin
-        ? { studentId: values.studentId, password: values.password }
-        : { phone: values.phone, password: values.password };
+        ? { studentId: values.studentId, password: values.password, portal: "main" }
+        : { phone: values.phone, password: values.password, portal: "main" };
 
       try {
         const response = await axiosInstance.post(

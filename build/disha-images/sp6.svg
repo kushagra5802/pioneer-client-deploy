@@ -1,0 +1,36 @@
+<svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- 3x3 matrix. Cols: Circle, Triangle, Square. Rows: empty, half-fill, full-fill -->
+  <!-- Row 1 -->
+  <rect x="10" y="10" width="80" height="80" fill="none" stroke="#004877" stroke-width="1.5"/>
+  <circle cx="50" cy="50" r="28" fill="none" stroke="#1a3a6b" stroke-width="2.5"/>
+  <rect x="100" y="10" width="80" height="80" fill="none" stroke="#004877" stroke-width="1.5"/>
+  <polygon points="140,20 168,75 112,75" fill="none" stroke="#1a3a6b" stroke-width="2.5"/>
+  <rect x="190" y="10" width="80" height="80" fill="none" stroke="#004877" stroke-width="1.5"/>
+  <rect x="210" y="25" width="40" height="40" fill="none" stroke="#c07020" stroke-width="2.5"/>
+
+  <!-- Row 2 -->
+  <rect x="10" y="100" width="80" height="80" fill="none" stroke="#004877" stroke-width="1.5"/>
+  <circle cx="50" cy="140" r="28" fill="none" stroke="#1a3a6b" stroke-width="2.5"/>
+  <circle cx="50" cy="140" r="14" fill="#9bbde0"/>
+  <rect x="100" y="100" width="80" height="80" fill="none" stroke="#004877" stroke-width="1.5"/>
+  <polygon points="140,110 168,165 112,165" fill="none" stroke="#1a3a6b" stroke-width="2.5"/>
+  <polygon points="140,127 156,155 124,155" fill="#9bbde0"/>
+  <rect x="190" y="100" width="80" height="80" fill="none" stroke="#004877" stroke-width="1.5"/>
+  <rect x="210" y="115" width="40" height="40" fill="#e8c060" stroke="#c07020" stroke-width="2.5" opacity="0.5"/>
+
+  <!-- Row 3 -->
+  <rect x="10" y="190" width="80" height="80" fill="none" stroke="#004877" stroke-width="1.5"/>
+  <circle cx="50" cy="230" r="28" fill="#1a3a6b"/>
+  <rect x="100" y="190" width="80" height="80" fill="none" stroke="#004877" stroke-width="1.5"/>
+  <polygon points="140,200 168,255 112,255" fill="#1a3a6b"/>
+  <!-- Missing cell (question mark) -->
+  <rect x="190" y="190" width="80" height="80" fill="#fff8e8" stroke="#c07020" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="230" y="238" text-anchor="middle" font-size="28" fill="#c07020" font-weight="bold">?</text>
+
+  <!-- Labels -->
+  <text x="50" y="282" text-anchor="middle" font-size="10" fill="#666">Circle →</text>
+  <text x="140" y="282" text-anchor="middle" font-size="10" fill="#666">Triangle →</text>
+  <text x="230" y="282" text-anchor="middle" font-size="10" fill="#666">Square →</text>
+  <text x="320" y="50" text-anchor="start" font-size="9" fill="#27ae60">↓ Fill increases</text>
+  <text x="320" y="62" text-anchor="start" font-size="9" fill="#27ae60">(empty→half→full)</text>
+</svg>

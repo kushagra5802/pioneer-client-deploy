@@ -1,0 +1,22 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- Original L-shape -->
+  <text x="60" y="18" text-anchor="middle" font-size="11" fill="#004877" font-weight="bold">Original</text>
+  <rect x="30" y="25" width="25" height="90" fill="#5b7fbf" rx="2"/>
+  <rect x="30" y="90" width="55" height="25" fill="#5b7fbf" rx="2"/>
+  <text x="68" y="130" font-size="10" fill="#888">90° CW →</text>
+
+  <!-- Option A (wrong) -->
+  <text x="150" y="18" text-anchor="middle" font-size="11" fill="#c0392b">A (wrong)</text>
+  <rect x="125" y="100" width="25" height="60" fill="#e8a0a0" rx="2"/>
+  <rect x="125" y="100" width="55" height="25" fill="#e8a0a0" rx="2"/>
+
+  <!-- Option B (correct) -->
+  <text x="240" y="18" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="bold">B ✓ Correct</text>
+  <rect x="215" y="25" width="55" height="25" fill="#7dbb8a" rx="2"/>
+  <rect x="240" y="25" width="25" height="90" fill="#7dbb8a" rx="2"/>
+
+  <!-- Option C (wrong) -->
+  <text x="345" y="18" text-anchor="middle" font-size="11" fill="#c0392b">C (wrong)</text>
+  <rect x="320" y="25" width="25" height="60" fill="#e8a0a0" rx="2"/>
+  <rect x="345" y="55" width="35" height="25" fill="#e8a0a0" rx="2"/>
+</svg>

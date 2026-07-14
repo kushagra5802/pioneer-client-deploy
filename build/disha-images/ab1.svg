@@ -1,0 +1,33 @@
+<svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- 3x3 matrix: shape changes per row, fill increases per column -->
+  <!-- Row 1: Triangles -->
+  <rect x="10" y="10" width="80" height="80" fill="none" stroke="#3bbee8" stroke-width="1.5"/>
+  <polygon points="50,22 78,78 22,78" fill="none" stroke="#3bbee8" stroke-width="2.5"/>
+  <rect x="100" y="10" width="80" height="80" fill="none" stroke="#3bbee8" stroke-width="1.5"/>
+  <polygon points="140,22 168,78 112,78" fill="none" stroke="#3bbee8" stroke-width="2.5"/>
+  <polygon points="140,36 158,68 122,68" fill="#9bbde0" opacity="0.5"/>
+  <rect x="190" y="10" width="80" height="80" fill="none" stroke="#3bbee8" stroke-width="1.5"/>
+  <polygon points="230,22 258,78 202,78" fill="#1a3a6b"/>
+
+  <!-- Row 2: Squares -->
+  <rect x="10" y="100" width="80" height="80" fill="none" stroke="#3bbee8" stroke-width="1.5"/>
+  <rect x="22" y="112" width="56" height="56" fill="none" stroke="#3bbee8" stroke-width="2.5"/>
+  <rect x="100" y="100" width="80" height="80" fill="none" stroke="#3bbee8" stroke-width="1.5"/>
+  <rect x="112" y="112" width="56" height="56" fill="none" stroke="#3bbee8" stroke-width="2.5"/>
+  <rect x="120" y="120" width="40" height="40" fill="#9bbde0" opacity="0.5"/>
+  <rect x="190" y="100" width="80" height="80" fill="none" stroke="#3bbee8" stroke-width="1.5"/>
+  <rect x="202" y="112" width="56" height="56" fill="#1a3a6b"/>
+
+  <!-- Row 3: Pentagons -->
+  <rect x="10" y="190" width="80" height="80" fill="none" stroke="#c07020" stroke-width="1.5"/>
+  <polygon points="50,200 72,220 64,246 36,246 28,220" fill="none" stroke="#c07020" stroke-width="2.5"/>
+  <rect x="100" y="190" width="80" height="80" fill="none" stroke="#c07020" stroke-width="1.5"/>
+  <polygon points="140,200 162,220 154,246 126,246 118,220" fill="none" stroke="#c07020" stroke-width="2.5"/>
+  <polygon points="140,212 155,225 149,242 131,242 125,225" fill="#e8c060" opacity="0.5"/>
+  <!-- Missing cell -->
+  <rect x="190" y="190" width="80" height="80" fill="#fff8e8" stroke="#c07020" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="230" y="238" text-anchor="middle" font-size="28" fill="#c07020" font-weight="bold">?</text>
+
+  <text x="50" y="282" text-anchor="middle" font-size="9" fill="#666">Col: none→mid→full ↓</text>
+  <text x="280" y="200" font-size="9" fill="#27ae60" font-weight="bold">B ✓ full pentagon</text>
+</svg>

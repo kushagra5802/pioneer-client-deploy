@@ -1,0 +1,41 @@
+<svg viewBox="0 0 240 260" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- Kolam dot pattern suggesting lotus/8-pointed star -->
+  <!-- Concentric diamond arrangement of dots with large central dot -->
+  <!-- Centre -->
+  <circle cx="120" cy="120" r="9" fill="#1a3a6b"/>
+  <!-- Ring 1 (4 dots) -->
+  <circle cx="120" cy="95" r="5" fill="#1a3a6b"/>
+  <circle cx="120" cy="145" r="5" fill="#1a3a6b"/>
+  <circle cx="95" cy="120" r="5" fill="#1a3a6b"/>
+  <circle cx="145" cy="120" r="5" fill="#1a3a6b"/>
+  <!-- Ring 2 diagonal (4 dots) -->
+  <circle cx="103" cy="103" r="4.5" fill="#1a3a6b"/>
+  <circle cx="137" cy="103" r="4.5" fill="#1a3a6b"/>
+  <circle cx="103" cy="137" r="4.5" fill="#1a3a6b"/>
+  <circle cx="137" cy="137" r="4.5" fill="#1a3a6b"/>
+  <!-- Ring 3 (8 dots) -->
+  <circle cx="120" cy="72" r="4" fill="#1a3a6b"/>
+  <circle cx="120" cy="168" r="4" fill="#1a3a6b"/>
+  <circle cx="72" cy="120" r="4" fill="#1a3a6b"/>
+  <circle cx="168" cy="120" r="4" fill="#1a3a6b"/>
+  <circle cx="85" cy="85" r="4" fill="#1a3a6b"/>
+  <circle cx="155" cy="85" r="4" fill="#1a3a6b"/>
+  <circle cx="85" cy="155" r="4" fill="#1a3a6b"/>
+  <circle cx="155" cy="155" r="4" fill="#1a3a6b"/>
+  <!-- Ring 4 outer -->
+  <circle cx="120" cy="52" r="3.5" fill="#1a3a6b"/>
+  <circle cx="145" cy="58" r="3.5" fill="#1a3a6b"/>
+  <circle cx="162" cy="75" r="3.5" fill="#1a3a6b"/>
+  <circle cx="168" cy="100" r="3.5" fill="#1a3a6b"/>
+  <circle cx="168" cy="140" r="3.5" fill="#1a3a6b"/>
+  <circle cx="162" cy="165" r="3.5" fill="#1a3a6b"/>
+  <circle cx="145" cy="182" r="3.5" fill="#1a3a6b"/>
+  <circle cx="120" cy="188" r="3.5" fill="#1a3a6b"/>
+  <circle cx="95" cy="182" r="3.5" fill="#1a3a6b"/>
+  <circle cx="78" cy="165" r="3.5" fill="#1a3a6b"/>
+  <circle cx="72" cy="140" r="3.5" fill="#1a3a6b"/>
+  <circle cx="72" cy="100" r="3.5" fill="#1a3a6b"/>
+  <circle cx="78" cy="75" r="3.5" fill="#1a3a6b"/>
+  <circle cx="95" cy="58" r="3.5" fill="#1a3a6b"/>
+  <text x="120" y="228" text-anchor="middle" font-size="10" fill="#666">Kolam dot pattern — what shape is suggested?</text>
+</svg>

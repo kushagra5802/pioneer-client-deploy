@@ -1,19 +1,25 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { useQuery } from "react-query"
+import { useQuery, useQueryClient } from "react-query"
+import { toast } from "react-toastify"
 import useAxiosInstance from "../../lib/useAxiosInstance"
 import { useNavigate } from "react-router-dom"
-import { BookOpen, User, MapPin, ConstructionIcon, Phone, Mail, ArrowLeft, Eye, EyeOff } from "lucide-react"
+import { BookOpen, User, MapPin, ConstructionIcon, Phone, Mail, ArrowLeft, Eye, EyeOff, KeyRound } from "lucide-react"
 
 export default function StudentDetails() {
   const axios = useAxiosInstance()
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const { studentId } = useParams()
   const [activeTab, setActiveTab] = useState("details")
   const [selectedYear, setSelectedYear] = useState("")
   const [selectedClass, setSelectedClass] = useState("")
     const [selectedExamType, setSelectedExamType] = useState("")
     const [showPassword, setShowPassword] = useState(false)
+    const [showPasswordForm, setShowPasswordForm] = useState(false)
+    const [newPassword, setNewPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+    const [isSavingPassword, setIsSavingPassword] = useState(false)
 
   const fetchStudent = async (studentId) => {
     const { data } = await axios.get(`/api/students/${studentId}`)
@@ -35,6 +41,34 @@ export default function StudentDetails() {
     queryKey: ["studentMarks", studentId],
     queryFn: () => fetchStudentMarks(studentId),
   })
+
+  const handleChangePassword = async (e) => {
+    e.preventDefault()
+
+    if (newPassword.length < 6) {
+      toast.error("Password must be at least 6 characters")
+      return
+    }
+    if (newPassword !== confirmPassword) {
+      toast.error("Passwords do not match")
+      return
+    }
+
+    try {
+      setIsSavingPassword(true)
+      await axios.put(`/api/students/${studentId}`, { password: newPassword })
+      toast.success("Student password updated successfully")
+      queryClient.invalidateQueries(["student", studentId])
+      setShowPasswordForm(false)
+      setNewPassword("")
+      setConfirmPassword("")
+      setShowPassword(true)
+    } catch (err) {
+      toast.error(err?.response?.data?.message || "Failed to update password")
+    } finally {
+      setIsSavingPassword(false)
+    }
+  }
 
   console.log("marks",marks)
 
@@ -400,6 +434,53 @@ const selectedRecord = filteredRecords[0] || null
                       </button>
                     )}
                   </div>
+
+                  {!showPasswordForm ? (
+                    <button
+                      onClick={() => setShowPasswordForm(true)}
+                      className="mt-2 flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700"
+                    >
+                      <KeyRound className="w-3.5 h-3.5" />
+                      Change Password
+                    </button>
+                  ) : (
+                    <form onSubmit={handleChangePassword} className="mt-3 space-y-2 bg-slate-50 rounded-lg p-3">
+                      <input
+                        type="password"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        placeholder="New password"
+                        className="w-full px-3 py-2 text-sm rounded-lg border border-slate-200"
+                      />
+                      <input
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        placeholder="Confirm new password"
+                        className="w-full px-3 py-2 text-sm rounded-lg border border-slate-200"
+                      />
+                      <div className="flex justify-end gap-2 pt-1">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setShowPasswordForm(false)
+                            setNewPassword("")
+                            setConfirmPassword("")
+                          }}
+                          className="px-3 py-1.5 text-xs font-semibold text-slate-500 rounded-lg hover:bg-slate-100"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          disabled={isSavingPassword}
+                          className="px-3 py-1.5 text-xs font-semibold text-white bg-indigo-500 rounded-lg disabled:opacity-50"
+                        >
+                          {isSavingPassword ? "Saving..." : "Save"}
+                        </button>
+                      </div>
+                    </form>
+                  )}
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-1">Parent Occupation</p>

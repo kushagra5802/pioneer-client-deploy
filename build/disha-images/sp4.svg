@@ -1,0 +1,51 @@
+<svg viewBox="0 0 280 260" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- Isometric cube stack - 19 total cubes drawn as isometric projection -->
+  <!-- Using isometric transforms: right face (60° skew), left face (60° skew), top face -->
+  <defs>
+    <g id="cube">
+      <!-- top face -->
+      <polygon points="20,0 40,11.5 20,23 0,11.5" fill="#9bbde0" stroke="#004877" stroke-width="1"/>
+      <!-- left face -->
+      <polygon points="0,11.5 0,31.5 20,43 20,23" fill="#5b88c0" stroke="#004877" stroke-width="1"/>
+      <!-- right face -->
+      <polygon points="40,11.5 40,31.5 20,43 20,23" fill="#3a6fa8" stroke="#004877" stroke-width="1"/>
+    </g>
+  </defs>
+
+  <!-- Base layer 3×3 = 9 cubes -->
+  <!-- Row 1 (back) -->
+  <use href="#cube" transform="translate(100,30)"/>
+  <use href="#cube" transform="translate(140,52)"/>
+  <use href="#cube" transform="translate(160,30)"/>
+
+  <!-- Row 2 (middle) -->
+  <use href="#cube" transform="translate(60,52)"/>
+  <use href="#cube" transform="translate(100,74)"/>  <!-- center -->
+  <use href="#cube" transform="translate(140,96)"/>  <!-- front right adjusted -->
+  <use href="#cube" transform="translate(120,52)"/>
+
+  <!-- Row 3 (front) -->
+  <use href="#cube" transform="translate(40,74)"/>
+  <use href="#cube" transform="translate(80,96)"/>
+
+  <!-- Second layer 2×2 = 4 -->
+  <use href="#cube" transform="translate(100,10)"/>
+  <use href="#cube" transform="translate(120,32)"/>
+  <use href="#cube" transform="translate(140,10)"/>
+  <use href="#cube" transform="translate(80,32)"/>
+
+  <!-- Third layer 1×2 = 2 -->
+  <use href="#cube" transform="translate(100,-10)"/>
+  <use href="#cube" transform="translate(120,12)"/>
+
+  <!-- Layer 4 1×2 = 2 -->
+  <use href="#cube" transform="translate(100,-30)"/>
+  <use href="#cube" transform="translate(120,-8)"/>
+
+  <!-- Top 2 -->
+  <use href="#cube" transform="translate(100,-50)"/>
+  <use href="#cube" transform="translate(120,-28)"/>
+
+  <text x="140" y="245" text-anchor="middle" font-size="11" fill="#666">Count ALL including hidden ones</text>
+  <text x="140" y="258" text-anchor="middle" font-size="10" fill="#004877">How many cubes are in this stack?</text>
+</svg>

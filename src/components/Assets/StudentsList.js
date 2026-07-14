@@ -1,5 +1,7 @@
-import { Building2, ChevronLeft, ChevronRight } from "lucide-react"
+import { useContext } from "react"
+import { Building2, ChevronLeft, ChevronRight, Pencil } from "lucide-react"
 import { useNavigate } from "react-router-dom"
+import AssetsContext from "../../context/assetContext"
 
 export default function StudentsList({
   students,
@@ -8,6 +10,7 @@ export default function StudentsList({
   setCurrentPage,
 }) {
   const navigate = useNavigate()
+  const { setStudentModalOpen, setEditingStudent } = useContext(AssetsContext)
   return (
     <>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -112,6 +115,22 @@ export default function StudentsList({
                   </span>
                 </div>
               )}
+
+              {/* Actions */}
+              <div className="mt-4 pt-3 border-t border-slate-100 flex justify-end">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setEditingStudent(student)
+                    setStudentModalOpen(true)
+                  }}
+                  className="flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 px-3 py-1.5 rounded-lg hover:bg-indigo-50"
+                >
+                  <Pencil className="w-3.5 h-3.5" />
+                  Edit
+                </button>
+              </div>
             </div>
           )
         })}

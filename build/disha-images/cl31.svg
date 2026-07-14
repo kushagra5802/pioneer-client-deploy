@@ -1,0 +1,6 @@
+<svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+  <rect x="10" y="15" width="300" height="60" rx="8" fill="#f0f4f8" stroke="#004877" stroke-width="1.5"/>
+  <text x="160" y="10" text-anchor="middle" font-size="9" fill="#666" font-family="sans-serif">Complete this word related to scientific investigation:</text>
+  <!-- Letters with blanks -->
+  <text x="160" y="58" text-anchor="middle" font-size="28" fill="#1a3a6b" letter-spacing="8" font-weight="bold">C_R_O_I_T_</text>
+</svg>

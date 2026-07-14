@@ -1,0 +1,24 @@
+<svg viewBox="0 0 380 110" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect x="10" y="10" width="360" height="90" rx="8" fill="#F2F7FF" stroke="#1B3A5C" stroke-width="2"/>
+  <text x="190" y="28" text-anchor="middle" font-size="10" fill="#5A6E75">Find ONE word or phrase connecting all three →</text>
+
+  <!-- CHAI tile -->
+  <rect x="24" y="36" width="96" height="52" rx="10" fill="#1B3A5C"/>
+  <text x="72" y="68" text-anchor="middle" font-size="20" font-weight="bold" fill="white">CHAI</text>
+
+  <!-- dot -->
+  <circle cx="130" cy="62" r="5" fill="#C47A00"/>
+
+  <!-- CUTTING tile -->
+  <rect x="142" y="36" width="96" height="52" rx="10" fill="#1B3A5C"/>
+  <text x="190" y="68" text-anchor="middle" font-size="18" font-weight="bold" fill="white">CUTTING</text>
+
+  <!-- dot -->
+  <circle cx="248" cy="62" r="5" fill="#C47A00"/>
+
+  <!-- STALL tile -->
+  <rect x="260" y="36" width="96" height="52" rx="10" fill="#1B3A5C"/>
+  <text x="308" y="68" text-anchor="middle" font-size="20" font-weight="bold" fill="white">STALL</text>
+
+  <text x="190" y="100" text-anchor="middle" font-size="10" fill="#5A6E75">What single word / phrase links all three?</text>
+</svg>

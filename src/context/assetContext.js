@@ -228,6 +228,9 @@ const AssetsContext = createContext({
   studentModalOpen: false,
   setStudentModalOpen: () => {},
 
+  editingStudent: null,
+  setEditingStudent: () => {},
+
   academicModalOpen: false,              // ✅ NEW
   setAcademicModalOpen: () => {},         // ✅ NEW
 
@@ -302,6 +305,7 @@ const sampleStudents = [
 export const AssetsProvider = ({ children }) => {
   const [employeeModalOpen, setEmployeeModalOpen] = useState(false)
   const [studentModalOpen, setStudentModalOpen] = useState(false)
+  const [editingStudent, setEditingStudent] = useState(null)
 
   const [academicModalOpen, setAcademicModalOpen] = useState(false) // ✅ NEW
 
@@ -352,7 +356,10 @@ export const AssetsProvider = ({ children }) => {
         studentModalOpen,
         setStudentModalOpen,
 
-        academicModalOpen,            
+        editingStudent,
+        setEditingStudent,
+
+        academicModalOpen,
         setAcademicModalOpen,         
 
         employees,

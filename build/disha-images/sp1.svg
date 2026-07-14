@@ -1,0 +1,19 @@
+<svg viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- Cross-shaped net for cube -->
+  <rect x="110" y="10" width="80" height="80" fill="#c8d9f0" stroke="#004877" stroke-width="2"/>
+  <text x="150" y="55" text-anchor="middle" font-size="13" fill="#004877">TOP</text>
+  <rect x="110" y="90" width="80" height="80" fill="#9bbde0" stroke="#004877" stroke-width="2"/>
+  <text x="150" y="135" text-anchor="middle" font-size="13" fill="#004877">FRONT</text>
+  <rect x="30" y="90" width="80" height="80" fill="#c8d9f0" stroke="#004877" stroke-width="2"/>
+  <text x="70" y="135" text-anchor="middle" font-size="13" fill="#004877">LEFT</text>
+  <rect x="190" y="90" width="80" height="80" fill="#c8d9f0" stroke="#004877" stroke-width="2"/>
+  <text x="230" y="135" text-anchor="middle" font-size="13" fill="#004877">RIGHT</text>
+  <rect x="110" y="170" width="80" height="80" fill="#c8d9f0" stroke="#004877" stroke-width="2"/>
+  <text x="150" y="215" text-anchor="middle" font-size="13" fill="#004877">BOTTOM</text>
+  <!-- fold lines -->
+  <line x1="150" y1="90" x2="150" y2="10" stroke="#e0a020" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="110" y1="130" x2="30" y2="130" stroke="#e0a020" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="190" y1="130" x2="270" y2="130" stroke="#e0a020" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="150" y1="170" x2="150" y2="250" stroke="#e0a020" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="150" y="270" text-anchor="middle" font-size="10" fill="#888">fold lines</text>
+</svg>

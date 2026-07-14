@@ -21,7 +21,8 @@ export default function AssetsContent() {
     academicModalOpen,
     setEmployeeModalOpen,
     setStudentModalOpen,
-    setAcademicModalOpen
+    setAcademicModalOpen,
+    setEditingStudent
   } = useContext(AssetsContext)
 
   const [activeTab, setActiveTab] = useState("employees")
@@ -119,9 +120,12 @@ export default function AssetsContent() {
                 : setStudentPage(1)
             }}
             onAddStudent={() => {
-                activeTab === "employees"
-                ? setEmployeeModalOpen(true)
-                : setStudentModalOpen(true)
+                if (activeTab === "employees") {
+                  setEmployeeModalOpen(true)
+                } else {
+                  setEditingStudent(null)
+                  setStudentModalOpen(true)
+                }
             }}
             onAddAcademics={() => setAcademicModalOpen(true)}
             />

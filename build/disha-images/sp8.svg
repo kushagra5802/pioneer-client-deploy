@@ -1,0 +1,59 @@
+<svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <!-- 3D Classroom view (left) -->
+  <text x="90" y="14" text-anchor="middle" font-size="10" fill="#004877" font-weight="bold">3D View (given)</text>
+  <rect x="10" y="20" width="160" height="140" fill="#f0f4f8" stroke="#004877" stroke-width="2"/>
+  <!-- blackboard top -->
+  <rect x="20" y="25" width="140" height="22" fill="#1a3a6b"/>
+  <text x="90" y="40" text-anchor="middle" font-size="9" fill="white">BLACKBOARD</text>
+  <rect x="55" y="50" width="70" height="16" fill="#c8d9f0" stroke="#004877" stroke-width="1"/>
+  <text x="90" y="62" text-anchor="middle" font-size="8" fill="#004877">Teacher</text>
+  <!-- student desks 3x3 grid -->
+  <rect x="25" y="80" width="25" height="18" fill="#dde8f4" stroke="#7090b0" stroke-width="1"/>
+  <rect x="57" y="80" width="25" height="18" fill="#dde8f4" stroke="#7090b0" stroke-width="1"/>
+  <rect x="89" y="80" width="25" height="18" fill="#dde8f4" stroke="#7090b0" stroke-width="1"/>
+  <rect x="25" y="105" width="25" height="18" fill="#dde8f4" stroke="#7090b0" stroke-width="1"/>
+  <rect x="57" y="105" width="25" height="18" fill="#dde8f4" stroke="#7090b0" stroke-width="1"/>
+  <rect x="89" y="105" width="25" height="18" fill="#dde8f4" stroke="#7090b0" stroke-width="1"/>
+  <rect x="25" y="130" width="25" height="18" fill="#dde8f4" stroke="#7090b0" stroke-width="1"/>
+  <rect x="57" y="130" width="25" height="18" fill="#dde8f4" stroke="#7090b0" stroke-width="1"/>
+  <rect x="89" y="130" width="25" height="18" fill="#dde8f4" stroke="#7090b0" stroke-width="1"/>
+  <!-- window on left -->
+  <rect x="10" y="80" width="10" height="40" fill="#b8d8f0" stroke="#7090b0" stroke-width="1"/>
+  <text x="14" y="105" font-size="7" fill="#004877" transform="rotate(-90 14 105)">WIN</text>
+  <!-- door bottom right -->
+  <rect x="138" y="145" width="28" height="15" fill="#c8a060" stroke="#7090b0" stroke-width="1"/>
+  <!-- N arrow -->
+  <line x1="165" y1="25" x2="165" y2="40" stroke="#004877" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="168" y="28" font-size="8" fill="#004877">N</text>
+
+  <!-- Top-view options -->
+  <text x="260" y="14" text-anchor="middle" font-size="10" fill="#004877" font-weight="bold">Top-view options</text>
+
+  <!-- Option A (wrong) -->
+  <rect x="185" y="20" width="60" height="60" fill="#fdecea" stroke="#e74c3c" stroke-width="1.5"/>
+  <text x="215" y="36" text-anchor="middle" font-size="9" fill="#e74c3c">A</text>
+  <rect x="190" y="40" width="50" height="8" fill="#e8a0a0"/>
+  <rect x="190" y="52" width="22" height="6" fill="#e8a0a0"/>
+  <rect x="215" y="52" width="22" height="6" fill="#e8a0a0"/>
+  <rect x="190" y="62" width="22" height="6" fill="#e8a0a0"/>
+  <rect x="215" y="62" width="22" height="6" fill="#e8a0a0"/>
+
+  <!-- Option B (correct) -->
+  <rect x="250" y="20" width="60" height="60" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+  <text x="280" y="36" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="bold">B ✓</text>
+  <rect x="255" y="40" width="50" height="8" fill="#1a3a6b"/>
+  <rect x="263" y="51" width="12" height="8" fill="#c8d9f0"/>
+  <rect x="255" y="51" width="6" height="22" fill="#b8d8f0"/>
+  <rect x="258" y="62" width="8" height="6" fill="#c8a060"/>
+  <rect x="269" y="62" width="8" height="6" fill="#dde8f4"/>
+  <rect x="280" y="62" width="8" height="6" fill="#dde8f4"/>
+  <rect x="269" y="53" width="8" height="6" fill="#dde8f4"/>
+  <rect x="280" y="53" width="8" height="6" fill="#dde8f4"/>
+
+  <!-- Option C (wrong) -->
+  <rect x="315" y="20" width="60" height="60" fill="#fdecea" stroke="#e74c3c" stroke-width="1.5"/>
+  <text x="345" y="36" text-anchor="middle" font-size="9" fill="#e74c3c">C</text>
+  <rect x="320" y="40" width="50" height="8" fill="#e8a0a0"/>
+  <rect x="320" y="52" width="22" height="6" fill="#e8a0a0"/>
+  <rect x="345" y="52" width="22" height="6" fill="#e8a0a0"/>
+</svg>
